@@ -56,6 +56,23 @@ li{
     float: right;
 }
 
+[class^="triangle-separator"],
+[class^=" triangle-separator"]{
+    background: #333;
+    position: relative;
+    text-align: center;
+    padding-bottom: 45px;
+    margin-top: -45px;
+}
+
+[class^="triangle-separator"] > img,
+[class^=" triangle-separator"] > img{
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: -20px;
+    display: block;
+}
 /* ============================================== END GENERAL ============================================== */
 /* ============================================== NAVIGATION ============================================== */
 body > *{
@@ -148,7 +165,7 @@ header > h1{
 .module.parallax-0 {
 	background-image: url("../img/header.jpg");
     background-position: 0% 0%;
-	height: 550px;
+	width: 100%;
 }
 
 .module.parallax-1 {
@@ -239,6 +256,15 @@ div.module.parallax h1{
 } */
 /* =========================================== END TRIANGLE LABEL ============================================== */
 /* =============================================== MEDIA QUERIES =============================================== */
+
+
+@media only screen and (min-width: 40.063em){
+    [class^="triangle-separator"] > img,
+    [class^=" triangle-separator"] > img{
+        top: -40px;
+        height: 40px;
+    }
+}
 
 @media (max-width: 1000px) {
     .wrap-content{

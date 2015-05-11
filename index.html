@@ -31,7 +31,7 @@
         <nav>
             <nav class="wrap-content">
                 <div class="left">
-                    <a href="phoneto:00000000"><i class="fa fa-phone"></i> 00 00 00 00 00</a>
+                    <a href="tel:0637167498"><i class="fa fa-phone"></i> 06 37 16 74 98</a>
                     <a href="mailto:manon_lay@hotmail.fr"><i class="fa fa-envelope-o"></i> manon_lay@hotmail.fr</a>
                 </div>
                 <div class="right">
@@ -63,6 +63,10 @@
         <h1>Manon Lay</h1>
     </header>
     
+    <section class="triangle-separator">
+        <img src="img/triangle.png" alt="Section separator">
+    </section>
+    
     <div class="wrap-content">
     <!--  VIOLET  #656899    -->
         <section>
@@ -71,6 +75,18 @@
     </div>
 
     <!-- ================================================== END MAIN CONTENT ================================================================ -->
+    
+    <script>
+        $(document).ready(function(){
+            $(".parallax-0").height($(window).height());
+            $(".parallax-0 > h1").css("line-height", $(window).height()+"px");
+            
+            $(window).resize(function(){
+                $(".parallax-0").height($(window).height());
+                $(".parallax-0 > h1").css("line-height", $(window).height()+"px");
+            });
+        });
+    </script>
 
 </body>
 </html>
