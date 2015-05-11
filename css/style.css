@@ -68,6 +68,10 @@ nav a{
     line-height: 85px;
     margin-left: 20px;
     text-transform: uppercase;
+    text-decoration: none;
+    font-size: .75em;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 /* ============================================== END NAVIGATION ============================================== */
 /* ============================================== HEADER ============================================== */
