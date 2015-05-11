@@ -1,0 +1,186 @@
+/* ============================================== GENERAL ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    transition: 220ms;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -o-transition: 220ms;
+    -ms-transition: 220ms;
+/*    font-family: 'Open Sans', sans-serif;*/
+    font-weight: 300;
+}
+
+body{
+/*    background-color: #fbfbfb;*/
+    font: 100%/1.125em 'Open Sans', sans-serif;
+}
+
+.wrap-content{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*
+h1{
+    font-weight: 200;
+    font-size: 4.3em;
+    line-height: 100%;
+    margin-bottom: 32px;
+    color: #A8A9A4;
+}
+
+svg{
+    display: block;
+}
+
+li{
+    font-size: 20px;
+    line-height: 28px;
+}
+*/
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+/* ============================================== END GENERAL ============================================== */
+/* ============================================== NAVIGATION ============================================== */
+body > nav{
+    height: 85px;
+}
+
+body > nav > nav{
+    height: 85px;
+}
+
+nav a{
+    display: inline-block;
+    line-height: 85px;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+/* ============================================== END NAVIGATION ============================================== */
+/* ============================================== HEADER ============================================== */
+/* ============================================== END HEADER ============================================== */
+/* ============================================== MAIN CONTENT ============================================== */
+
+/* ============================================== END MAIN CONTENT ============================================== */
+/* ================================================== PARALLAX ================================================== */
+/*
+
+.module.parallax{
+	height: 400px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	/* margin-bottom: 60px;
+} */
+
+.module.parallax-0 {
+	background-image: url("../img/sylvain.jpg");
+    background-position: 0% 0%;
+	background-size: 50%;
+}
+
+.module.parallax-1 {
+    background-image: url("../img/skills.png");
+    background-position: 0% 0%;
+	background-size: cover;
+}
+
+/* .module.parallax-2 {
+    background-image: url("../img/work.jpg");
+}
+
+.module.parallax-3 {
+    background-image: url("../img/contactus_banner.jpg");
+} */
+
+div.module.parallax h1{
+	font-size: 100px;
+	color: rgba(251,251,251,0.9);
+	font-weight: 300;
+	padding: 5% 0;
+}
+
+/* ============================================== END PARALLAX ================================================= */
+/* ============================================= TRIANGLE LABEL ================================================ */
+
+[class*="label"]{
+    position: absolute;
+}
+
+[class^="label-left"],
+[class^=" label-left"]{
+    left: -21px;
+    top: 48%;
+    border-width: 16.5px 21.7px 16.5px 0;
+    border-color: transparent #fbfbfb transparent transparent;
+    _border-color: #000000 #fbfbfb #000000 #000000;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    line-height: 0px;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+[class^="label-right"],
+[class^=" label-right"]{
+    right: -21px;
+    z-index: 9999;
+    top: 48%;
+    border-width: 16.5px 0 16.5px 21.7px;
+    border-color: transparent transparent transparent #fbfbfb;
+    _border-color: #000000 #000000 #000000 #fbfbfb;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    line-height: 0px;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+[class^="label-bottom"],
+[class^=" label-bottom"]{
+    bottom: -21px;
+    right: 48%;
+    z-index: 9999;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    line-height: 0px;
+    border-width: 21.7px 16.5px 0 16.5px;
+    border-color: #fbfbfb transparent transparent transparent;
+    _border-color: #fbfbfb #000000 #000000 #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+[class^="overflow"],
+[class^=" overflow"]{
+    overflow-y: hidden;
+}
+
+/* .label:before{
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    width:100px; height:100px;
+    background : #fbfbfb;
+    transform-origin:0 100%;
+    transform : rotate(-45deg);
+} */
+/* =========================================== END TRIANGLE LABEL ============================================== */
+/* =============================================== MEDIA QUERIES =============================================== */
+
+@media (max-width: 767px) {
+
+}
+/* ============================================== END MEDIA QUERIES ============================================== */
