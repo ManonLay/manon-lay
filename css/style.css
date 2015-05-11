@@ -19,6 +19,7 @@
 body{
 /*    background-color: #fbfbfb;*/
     font: 100%/1.125em 'Open Sans', sans-serif;
+    padding-top: 120px;
 }
 
 .wrap-content{
@@ -45,54 +46,109 @@ li{
 }
 */
 
-.left{
+[class^="left"],
+[class^=" left"]{
     float: left;
 }
 
-.right{
+[class^="right"],
+[class^=" right"]{
     float: right;
 }
 
 /* ============================================== END GENERAL ============================================== */
 /* ============================================== NAVIGATION ============================================== */
+body > *{
+    width: 100%;
+}
+
 body > nav{
+    height: 120px;
+    background: #333;
+    position: absolute;
+    top: 0;
+}
+
+body > nav > nav:first-of-type{
+    height: 35px;
+    background: #4e4e4e;
+}
+
+body > nav > nav:last-of-type{
     height: 85px;
 }
 
-body > nav > nav{
-    height: 85px;
-}
-
-nav a{
+nav a{ 
+    color: #aaa;
     display: inline-block;
+    text-decoration: none;
+}
+
+body > nav > nav:first-of-type a{
+    margin-left: 20px;
+    font-size: .75em;
+    line-height: 35px;
+}
+
+body > nav > nav:first-of-type div:last-of-type a{
+    margin-left: 10px;
+}
+
+body > nav > nav:last-of-type a{
     line-height: 85px;
     margin-left: 20px;
     text-transform: uppercase;
-    text-decoration: none;
     font-size: .75em;
-    font-weight: 400;
     letter-spacing: 2px;
+}
+
+nav a:hover{
+    color: #fbfbfb;
+}
+
+nav a[class="active"]{
+    color: #fbfbfb;
+}
+
+nav [class*="logo"]{
+    width: 220px;
+    height: 70px;
+    text-align: right;
+    margin-top: 9px;
+    line-height: 65px !important;
+    background: url(http://placehold.it/720x720) no-repeat;
+    background-size: 65px;
+    font-family: 'Univers-Light',sans-serif;
+    font-size: 1.0625rem !important;
+    color: #fbfbfb;
 }
 /* ============================================== END NAVIGATION ============================================== */
 /* ============================================== HEADER ============================================== */
+header > h1{
+    line-height: 550px;
+    color: #fbfbfb;
+    text-align: center;
+    font-size: 5em;
+    text-transform: uppercase;
+}
 /* ============================================== END HEADER ============================================== */
 /* ============================================== MAIN CONTENT ============================================== */
 
 /* ============================================== END MAIN CONTENT ============================================== */
 /* ================================================== PARALLAX ================================================== */
-/*
+
 
 .module.parallax{
-	height: 400px;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	/* margin-bottom: 60px;
-} */
+	/* margin-bottom: 60px; */
+	background-size: cover;
+}
 
 .module.parallax-0 {
-	background-image: url("../img/sylvain.jpg");
+	background-image: url("../img/header.jpg");
     background-position: 0% 0%;
-	background-size: 50%;
+	height: 550px;
 }
 
 .module.parallax-1 {
@@ -184,7 +240,10 @@ div.module.parallax h1{
 /* =========================================== END TRIANGLE LABEL ============================================== */
 /* =============================================== MEDIA QUERIES =============================================== */
 
-@media (max-width: 767px) {
-
+@media (max-width: 1000px) {
+    .wrap-content{
+        width: 100%;
+        padding: 0 20px;
+    }
 }
 /* ============================================== END MEDIA QUERIES ============================================== */
