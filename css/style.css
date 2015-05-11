@@ -116,7 +116,7 @@ nav [class*="logo"]{
     text-align: right;
     margin-top: 9px;
     line-height: 65px !important;
-    background: url(http://placehold.it/720x720) no-repeat;
+    background: url(../img/logoManonLay.svg) no-repeat;
     background-size: 65px;
     font-family: 'Univers-Light',sans-serif;
     font-size: 1.0625rem !important;
