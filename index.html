@@ -47,7 +47,7 @@
             <div class="right">
                 <a onclick="nav('about-me');">À propos</a>
                 <a onclick="nav('skills');">Compétences</a>
-                <a href="#">Réalisations</a>
+                <a onclick="nav('realisations');">Réalisations</a>
                 <a href="#">Portfolio</a>
                 <a href="#">Contact</a>
             </div>
@@ -103,25 +103,33 @@
         </div>
     </section>
     
-    <section class="triangle-separator white">
+    <section class="triangle-separator white" id="realisations">
         <img src="img/triangle.white.png" alt="Section separator">
+    </section>
+    
+    <section class="white">
+        <div class="wrap-content">
+            <h1>Mes réalisations</h1>
+            <p>Étudiant de 20 ans dans le domaine du webdesign et de la conduite de projet web, je suis originaire de Toulouse. J'ai obtenu mon DUT Métiers du Multimédia et de l'Internet l'an dernier et suis actuellement étudiant au sein de l'école <a target="_blank" href="http://www.digital-campus.fr/">Digital Campus</a>.</p>
+            <p>Je suis disponible pour tout travail, que ce soit du webdesign, du print ou du développement. N'hésitez pas à me <a class="page-scroll" href="#contact">contacter</a> !</p>
+        </div>
     </section>
 
     <!-- ================================================== END MAIN CONTENT ================================================================ -->
     
     <script>
         $(document).ready(function(){
-            $(".parallax-0").height($(window).height());
-            $(".parallax-0 > h1").css("line-height", $(window).height()+"px");
+            $(".parallax-0").height($(window).height()-$("body > nav").height()+$(".triangle-separator > img").height());
+            $(".parallax-0 > h1").css("line-height", $(window).height()-$("body > nav").height()+$(".triangle-separator > img").height()+"px");
             
             $(window).resize(function(){
-                $(".parallax-0").height($(window).height());
-                $(".parallax-0 > h1").css("line-height", $(window).height()+"px");
+                $(".parallax-0").height($(window).height()-$("body > nav").height()+$(".triangle-separator > img").height());
+                $(".parallax-0 > h1").css("line-height", $(window).height()-$("body > nav").height()+$(".triangle-separator > img").height()+"px");
             });
             
             $(window).scroll(function(event) {
 //                console.warn($(window).scrollTop(), $("header").position().top+$("header").height());
-                if ($(window).scrollTop() >= $("header").position().top+($("header").height()-$("body > nav").height())) {
+                if ($(window).scrollTop() >= $("header").position().top+($("header").height()-$("body > nav").height()*2)) {
                     $("body > nav > nav:first-child").css('height', '0');
                     $("body > nav").css('height', '85px');
                     $("body > nav > nav:first-child").css('overflow', 'hidden');
