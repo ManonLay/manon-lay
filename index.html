@@ -48,7 +48,7 @@
                 <a onclick="nav('about-me');">À propos</a>
                 <a onclick="nav('skills');">Compétences</a>
                 <a onclick="nav('realisations');">Réalisations</a>
-                <a href="#">Portfolio</a>
+                <a onclick="nav('download');">Portfolio</a>
                 <a href="#">Contact</a>
             </div>
         </nav>
@@ -107,11 +107,67 @@
         <img src="img/triangle.white.png" alt="Section separator">
     </section>
     
-    <section class="white">
+    <section class="white portfolio">
         <div class="wrap-content">
             <h1>Mes réalisations</h1>
-            <p>Étudiant de 20 ans dans le domaine du webdesign et de la conduite de projet web, je suis originaire de Toulouse. J'ai obtenu mon DUT Métiers du Multimédia et de l'Internet l'an dernier et suis actuellement étudiant au sein de l'école <a target="_blank" href="http://www.digital-campus.fr/">Digital Campus</a>.</p>
-            <p>Je suis disponible pour tout travail, que ce soit du webdesign, du print ou du développement. N'hésitez pas à me <a class="page-scroll" href="#contact">contacter</a> !</p>
+            <article class="col-3-margin" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');">
+                <h3>Titre de l'image</h3>
+                <p>Texte de l'image</p>
+            </article>
+            <article class="col-3-margin" style="background-image: url('http://placehold.it/400x300');">
+                <h3>Titre de l'image</h3>
+                <p>Texte de l'image</p>
+            </article>
+            <article class="col-3-margin" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');">
+                <h3>Titre de l'image</h3>
+                <p>Texte de l'image</p>
+            </article>
+            <article class="col-3-margin" style="background-image: url('http://placehold.it/400x300');">
+                <h3>Titre de l'image</h3>
+                <p>Texte de l'image</p>
+            </article>
+            <article class="col-3-margin" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png');">
+                <h3>Titre de l'image</h3>
+                <p>Texte de l'image</p>
+            </article>
+            <article class="col-3-margin" style="background-image: url('http://placehold.it/400x300');">
+                <h3>Titre de l'image</h3>
+                <p>Texte de l'image</p>
+            </article>
+        </div>
+    </section>
+    
+    <section class="triangle-separator-inverse white" id="download">
+        <img src="img/triangle.only.white.png" alt="Section separator">
+    </section>
+    
+    <section class="module parallax parallax-1">
+        <div class="wrap-content">
+            <h1>Téléchargez</h1>
+            <article class="col-2">
+                <button>MON CV</button>
+            </article>
+            <article class="col-2">
+                <button>MON PORTFOLIO</button>
+            </article>
+        </div>
+    </section>
+    
+    <section class="triangle-separator black" id="contact">
+        <img src="img/triangle.png" alt="Section separator">
+    </section>
+    
+    <section class="black">
+        <div class="wrap-content">
+            <h1>GET IN TOUCH</h1>
+            <article class="col-2">
+                
+            </article>
+            <article class="col-2">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, <a href="#">dolor</a>, assumenda! Esse quae error autem eos accusamus nobis incidunt velit vel expedita libero enim nam, minima aliquam debitis similique eius?
+                </p>
+            </article>
         </div>
     </section>
 
@@ -127,13 +183,24 @@
                 $(".parallax-0 > h1").css("line-height", $(window).height()-$("body > nav").height()+$(".triangle-separator > img").height()+"px");
             });
             
+            var navbarHeight = $("body > nav").height();
+            var sectionArray = new Array("#about-me + section", "#skills + section", "#realisations + section", "#download + section", "#contact + section");
+            
             $(window).scroll(function(event) {
+                
+                $.each(sectionArray, function(key, val){
+                    if($(window).scrollTop() >= $(val).position().top-navbarHeight*2 && $(val).attr("class").indexOf("load") < 0)
+                        $(val).attr("class", $(val).attr("class")+" load");
+                });
+                
 //                console.warn($(window).scrollTop(), $("header").position().top+$("header").height());
-                if ($(window).scrollTop() >= $("header").position().top+($("header").height()-$("body > nav").height()*2)) {
+                if ($(window).scrollTop() >= $("header").position().top+($("header").height()-navbarHeight*2)) {
+//                    console.warn("nav collapsed");
                     $("body > nav > nav:first-child").css('height', '0');
                     $("body > nav").css('height', '85px');
                     $("body > nav > nav:first-child").css('overflow', 'hidden');
                 } else {
+//                    console.warn("nav uncollapsed");
                     $("body > nav > nav:first-child").css('height', '35px');
                     $("body > nav").css('height', '120px');
                 }
