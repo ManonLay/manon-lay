@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- JQUERY.JS -->
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<!--
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-     Latest compiled and minified JavaScript 
+<!--     Latest compiled and minified JavaScript 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 -->
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!--  LEAN MODAL.JS  -->
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 </head>
 <body>
 
@@ -44,7 +44,7 @@
         </nav>
 
         <nav class="wrap-content">
-            <a href="#" class="left logo">Manon Lay</a>
+            <a onclick="nav('home');" class="left logo">Manon Lay</a>
             <div class="right">
                 <a onclick="nav('about-me');">À propos</a>
                 <a onclick="nav('skills');">Compétences</a>
@@ -60,7 +60,7 @@
 
     <!-- ===================================================== MAIN CONTENT ================================================================= -->
     
-    <header class="module parallax parallax-0">
+    <header class="module parallax parallax-0" id="home">
         <h1>Bienvenu</h1>
     </header>
     
@@ -188,6 +188,20 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
     </section>
     
     <div id="map"></div>
+    
+    <footer>
+        <div class="wrap-content">
+            <p class="left">Manon LAY © 2015 | <a href="#lean-overlay">Mentions légales</a></p>
+            <p class="right">Développé par <a href="https://github.com/SylvainMarty">SylvainMarty</a></p>
+        </div>
+    </footer>
+    
+    <div id="lean-overlay">
+        <div class="modal-box">
+            <i class="fa fa-times close-modal" onclick="closeModal('#lean-overlay');"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est dolorum, molestias reiciendis voluptatibus adipisci ratione cupiditate perferendis porro, eaque laborum illum quas quia, fugit fuga nisi et. At, rem quo.</p>
+        </div>
+    </div>
 
     <!-- ================================================== END MAIN CONTENT ================================================================ -->
     
@@ -211,6 +225,13 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
                 $.each(sectionArray, function(key, val){
                     if($(window).scrollTop() >= $(val).position().top-navbarHeight*2 && $(val).attr("class").indexOf("load") < 0)
                         $(val).attr("class", $(val).attr("class")+" load");
+                        
+                    if($(window).scrollTop() >= $(val).position().top-navbarHeight*2){
+//                        console.log($("body > nav > nav:last-child > div").children()[key]);
+                        $("body > nav > nav:last-child > div").children().eq(key).css("color", "#fbfbfb");
+                    } else {
+                        $("body > nav > nav:last-child > div").children().eq(key).css("color", "#aaa");
+                    }
                 });
                 
 //                console.warn($(window).scrollTop(), $("header").position().top+$("header").height());
@@ -226,7 +247,18 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
                 }
             });
             
+            // Launch modal box
+            $("footer p:first-child a").leanModal();
         });
+        
+        /**
+         * Applique une animation fadeOut sur l'élément HTML passer en paramètre
+         * @param  {[String]} id [ID de l'élément que l'on veut cacher]
+         * @return /
+         */
+        function closeModal(selector){
+            $(selector).fadeOut();
+        }
             
         /**
          * Descend vers l'id de la page que l'on veut rejoindre avec une animation scroll

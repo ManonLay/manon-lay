@@ -432,6 +432,38 @@ section[id*="contact"] + section li{
     height: 300px;
 }
 /* ============================================== END MAIN CONTENT ============================================== */
+/* =================================================== FOOTER =================================================== */
+
+footer{
+    height: 35px;
+    background: #333;
+    overflow: hidden;
+}
+
+footer p{
+    line-height: 35px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: .75em;
+}
+
+footer p:first-child{
+    text-align: left;
+}
+
+footer p:last-child{
+    text-align: right;
+}
+
+footer a{
+    color: #fbfbfb;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #666999;
+}
+/* ================================================= END FOOTER ================================================= */
 /* ================================================== PARALLAX ================================================== */
 
 
@@ -535,6 +567,7 @@ div.module.parallax h1{
     transform : rotate(-45deg);
 } */
 /* =========================================== END TRIANGLE LABEL ============================================== */
+/* ================================================= FADEIN ELT ================================================ */
 
 .load > * {
     -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
@@ -575,6 +608,50 @@ div.module.parallax h1{
     to   { opacity: 1; }
 }
 
+/* =============================================== END FADEIN ELT ============================================== */
+/* ================================================= MODAL BOX ================================================= */
+
+[id="lean-overlay"] {
+    position: fixed;
+    z-index:100;
+    top: 85px !important;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+[class="modal-box"]{
+    width: 50%;
+    padding: 30px;
+    position: relative;
+    top: 60px;
+    left: 25%;
+    max-height: 300px;
+    background: #FFF;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+    overflow: auto;
+}
+
+.close-modal{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #ddd;
+}
+
+.close-modal:hover{
+    color: #bf5353;
+}
+
+/* =============================================== END MODAL BOX =============================================== */
 /* =============================================== MEDIA QUERIES =============================================== */
 
 
