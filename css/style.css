@@ -257,7 +257,8 @@ body > nav > nav:first-of-type div:last-of-type a{
     margin-left: 10px;
 }
 
-body > nav > nav:last-of-type a{
+body > nav > nav:last-of-type a,
+body > nav > .menu-mobile a{
     line-height: 85px;
     margin-left: 20px;
     text-transform: uppercase;
@@ -284,6 +285,42 @@ nav [class*="logo"]{
     font-family: 'Univers-Light',sans-serif;
     font-size: 1.0625rem !important;
     color: #fbfbfb;
+}
+
+body > nav > .menu-mobile{
+    display: none;
+    overflow: hidden;
+}
+
+body > nav > .menu-mobile div{
+    position: relative;
+}
+
+body > nav > .menu-mobile select{
+    background: transparent;
+    width: 150px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    height: 34px;
+    color: #ccc;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    margin-top: 25.5px;
+    text-transform: uppercase;
+    font-size: .75em;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+body > nav > .menu-mobile div i.navigation-caret{
+    position: absolute;
+    top: 32px;
+    right: 0;
+    color: #ccc;
 }
 /* ============================================== END NAVIGATION ============================================== */
 /* ============================================== HEADER ============================================== */
@@ -409,23 +446,28 @@ section[class*="parallax-1"] button{
     margin-top: 60px;
 }
 
-section[id*="contact"] + section button{
+body > section:last-of-type button{
     height: 40px;
     width: 400px;
     border-radius: 8px;
 }
 
-section[id*="contact"] + section h3{
+body > section:last-of-type h3{
     margin-bottom: 20px;
     font-size: 1.5rem;
 }
 
-section[id*="contact"] + section ul{
+body > section:last-of-type ul{
     list-style-type: none;
 }
 
-section[id*="contact"] + section li{
+body > section:last-of-type li{
     margin-bottom: 20px;
+}
+
+body > section:last-of-type {
+    padding-bottom: 50px;
+    padding-top: 0px;
 }
 
 [id*="map"]{
@@ -673,6 +715,69 @@ div.module.parallax h1{
     .wrap-content{
         width: 100%;
         padding: 0 20px;
+    }
+}
+
+@media (max-width: 850px) {
+    body > nav > nav:last-child{
+        display: none;
+    }
+    
+    body > nav > .menu-mobile{
+        display: inherit;
+    }
+    
+    [class^="col-3"],
+    [class^=" col-3"]{
+        width: 50%;
+        padding: 0 2%;
+    }
+
+    [class^="col-3-margin"],
+    [class^=" col-3-margin"]{
+        width: 48%;
+        margin: 0.5% 0.5%;
+    }
+    
+    body > section:last-of-type [class*="col-2"]{
+        width: 100%;
+        float: none;
+    }
+    
+    body > section:last-of-type article:last-of-type{
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 720px) {
+    [class^="col-2"],
+    [class^=" col-2"]{
+        width: 100%;
+        float: none;
+    }
+}
+
+@media (max-width: 580px) {
+    [class*="col-"]{
+        width: 100%;
+        float: none;
+    }
+    
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="search"], textarea,
+    body > section:last-of-type button {
+        width: 300px;
+    }
+    
+    footer{
+        height: 70px;
+    }
+    
+    footer [class*="left"],
+    footer [class*="right"]{
+        float: none;
+        text-align: center !important;
+        width: 100%;
     }
 }
 /* ============================================== END MEDIA QUERIES ============================================== */
