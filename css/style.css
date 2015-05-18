@@ -247,10 +247,6 @@ nav a{
     text-decoration: none;
 }
 
-nav i{
-    margin-right: 8px;
-}
-
 body > nav > nav:first-of-type a{
     margin-left: 20px;
     font-size: .75em;
@@ -430,6 +426,10 @@ section[id*="contact"] + section ul{
 
 section[id*="contact"] + section li{
     margin-bottom: 20px;
+}
+
+[id*="map"]{
+    height: 300px;
 }
 /* ============================================== END MAIN CONTENT ============================================== */
 /* ================================================== PARALLAX ================================================== */

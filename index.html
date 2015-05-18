@@ -21,6 +21,7 @@
 -->
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 <body>
 
@@ -32,7 +33,7 @@
             <nav class="wrap-content">
                 <div class="left">
                     <!--<a href="tel:0637167498"><i class="fa fa-phone"></i> 06 37 16 74 98</a>-->
-                    <a href="mailto:manon_lay@hotmail.fr"><i class="fa fa-envelope-o"></i>manon_lay@hotmail.fr</a>
+                    <a href="mailto:manon_lay@hotmail.fr"><i class="fa fa-envelope-o"></i> manon_lay@hotmail.fr</a>
                 </div>
                 <div class="right">
                     <a href="https://www.pinterest.com/manon_lay/" target="_blank"><i class="fa fa-pinterest-p"></i></a>
@@ -185,6 +186,8 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             </article>
         </div>
     </section>
+    
+    <div id="map"></div>
 
     <!-- ================================================== END MAIN CONTENT ================================================================ -->
     
@@ -197,6 +200,8 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
                 $(".parallax-0").height($(window).height()-$("body > nav").height()+$(".triangle-separator > img").height());
                 $(".parallax-0 > h1").css("line-height", $(window).height()-$("body > nav").height()+$(".triangle-separator > img").height()+"px");
             });
+            
+            initGoogleMap();
             
             var navbarHeight = $("body > nav").height();
             var sectionArray = new Array("#about-me + section", "#skills + section", "#realisations + section", "#download + section", "#contact + section");
@@ -231,6 +236,48 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
         function nav(id){
             var divPosition = $("#"+id).offset().top - 123;
             $('html, body').animate({scrollTop: divPosition}, "slow");
+        }
+        
+        /**
+         * Initialise l'élément HTML contenant la google map
+         * @param  {[String]} id [ID de l'élément que l'on veut atteindre à l'aide de la navigation]
+         * @return /
+         */
+        function initGoogleMap(){
+            var map;
+            var toulouse = new google.maps.LatLng(43.604652, 1.444209);
+
+            var style = [
+              {
+                featureType: "all",
+                elementType: "all",
+                stylers: [
+                  { weight: 0.1 },
+                  { lightness: 1 },
+                  { gamma: 1},
+                  { saturation: -75 },
+                  { hue: "#666999" },
+                  { visibility: "on" }
+                ]
+              }
+            ];
+
+            var mapOptions = {
+                zoom: 12,
+                center: toulouse,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false,
+                navigationControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                draggable: false,
+            };
+
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            var mapType = new google.maps.StyledMapType(style, { name:"Grayscale" });    
+            map.mapTypes.set('map_toulouse', mapType);
+            map.setMapTypeId('map_toulouse');
         }
     </script>
 
