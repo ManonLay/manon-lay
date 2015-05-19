@@ -388,11 +388,11 @@ section:nth-of-type(2n+2) > *{
     opacity: 0;
 }
 
-/*
-section article{
-    padding: 0 20px;
+article h3 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
 }
-*/
 
 article > img{
     margin: 0 auto 40px auto;
@@ -785,6 +785,16 @@ div.module.parallax h1{
         float: none;
         text-align: center !important;
         width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body h1{
+        font-size: 30px;
+    }
+    
+    body p{
+        
     }
 }
 /* ============================================== END MEDIA QUERIES ============================================== */
