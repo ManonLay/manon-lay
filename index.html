@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- META -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manon Lay - Graphiste & webdesigner</title>
-    <!-- Latest compiled and minified CSS -->
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-     Optional theme 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
--->
     <!-- CSS Style -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- JQUERY.JS -->
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<!--     Latest compiled and minified JavaScript 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
--->
-    <!-- FONT AWESOME -->
+        <!-- FOR DEV -->
+    <link rel="stylesheet" href="css/style.dev.css">
+        <!-- MIN 
+    <link rel="stylesheet" href="css/style.min.css">  -->
+    <!-- FONT AWESOME  CSS-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- JQUERY.JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- GOOGLE MAP API .JS -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <!--  LEAN MODAL.JS  -->
     <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <!-- JQUERY VALIDATOR PLUGIN .JS -->
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <!-- MAIN SCRIPT .JS -->
+        <!-- FOR DEV 
+    <script type="text/javascript" src="js/script.dev.js"></script> -->
+        <!-- MIN -->
+    <script type="text/javascript" src="js/script.min.js"></script>
 </head>
 <body>
 
@@ -102,23 +105,18 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             <h1>Mes compétences</h1>
             <article class="col-3">
                 <img src="img/skills.com.png" alt="Skills">
-                <p>
-                    <p>Communication</p>
-                     La communication est une partie importante dans la mise en ligne d'un projet. Mes compétences dans le marketing, le SEO ou encore le community management me permettent de mener à bien les projets qui me sont confiés.
-                </p>
+                <h3>Communication</h3>
+                <p>La communication est une partie importante dans la mise en ligne d'un projet. Mes compétences dans le marketing, le SEO ou encore le community management me permettent de mener à bien les projets qui me sont confiés.</p>
             </article>
             <article class="col-3">
                 <img src="img/skills.media.png" alt="Skills">
-                <p>
-                    <p>Multimédia</p>
-                    C'est la partie centrale de mes activités. Je travaille sur Photoshop, Illustrator ou Indesign pour répondre à des besoins en infographie, web design ou identité visuelle. Je pratique aussi la photographie depuis plusieurs année en tant qu'amateur.
-                </p>
+                <h3>Multimédia</h3>
+                <p>C'est la partie centrale de mes activités. Je travaille sur Photoshop, Illustrator ou Indesign pour répondre à des besoins en infographie, web design ou identité visuelle. Je pratique aussi la photographie depuis plusieurs année en tant qu'amateur.</p>
             </article>
             <article class="col-3">
                 <img src="img/skills.info.png" alt="Skills">
-                <p>
-                    <p>Gestion de projet web</p>
-                    Mes compétences dans la création de sites avec des CMS (Wordpress, Joomla) ou encore en html/css, ainsi que mes autres compétences, me permettent de pouvoir faire de la gestion de projet pour améliorer les sites internet qui sont créés.
+                <h3>Gestion de projet web</h3>
+                <p>Mes compétences dans la création de sites avec des CMS (Wordpress, Joomla) ou encore en html/css, ainsi que mes autres compétences, me permettent de pouvoir faire de la gestion de projet pour améliorer les sites internet qui sont créés.</p>
             </article>
         </div>
     </section>
@@ -181,12 +179,13 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
         <div class="wrap-content">
             <h1>GET IN TOUCH</h1>
             <article class="col-2">
-                <form action="">
-                    <input type="text" placeholder="Votre nom et prénom">
-                    <input type="email" placeholder="Votre adresse email">
-                    <input type="text" placeholder="L'objet de votre message">
-                    <textarea placeholder="Écrivez votre message"></textarea>
-                    <button>ENVOYER</button>
+                <form action="" id="contactForm">
+                    <input type="text" name="nom" id="nom" placeholder="Votre nom et prénom *" required>
+                    <input type="email" name="mail" id="mail" placeholder="Votre adresse email *" required>
+                    <input type="text" name="objet" id="objet" placeholder="L'objet de votre message *" required>
+                    <textarea name="message" id="message" minlength="5" placeholder="Écrivez votre message *" required></textarea>
+                    <button type="submit">ENVOYER</button>
+                    <span id="messageBox"></span>
                 </form>
             </article>
             <article class="col-2">
@@ -208,7 +207,7 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
     <footer>
         <div class="wrap-content">
             <p class="left">Manon LAY © 2015 | <a href="#lean-overlay">Mentions légales</a></p>
-            <p class="right">Développé par <a href="https://github.com/SylvainMarty">SylvainMarty</a></p>
+            <p class="right">Développé par <a href="https://github.com/SylvainMarty" target="_blank">SylvainMarty</a></p>
         </div>
     </footer>
     
@@ -221,124 +220,7 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
 
     <!-- ================================================== END MAIN CONTENT ================================================================ -->
     
-    <script>
-        
-        var $windowWidth = $(window).width();
-        
-        $(document).ready(function(){
-            
-            $(".parallax-0").height($(window).height()-$("body > nav").height()+$(".triangle-separator > img").height());
-            $(".parallax-0 > h1").css("line-height", $(window).height()-$("body > nav").height()+$(".triangle-separator > img").height()+"px");
-            
-            if($windowWidth <= 430){ $("body > nav > .menu-mobile a").text(""); $("body > nav > .menu-mobile a").css("width", "70px"); }
-                else { $("body > nav > .menu-mobile a").text("MANON LAY"); $("body > nav > .menu-mobile a").css("width", "220px"); }
-            
-            $(window).resize(function(){
-                $windowWidth = $(window).width();
-                $(".parallax-0").height($(window).height()-$("body > nav").height()+$(".triangle-separator > img").height());
-                $(".parallax-0 > h1").css("line-height", $(window).height()-$("body > nav").height()+$(".triangle-separator > img").height()+"px");
-                if($windowWidth <= 430){ $("body > nav > .menu-mobile a").text(""); $("body > nav > .menu-mobile a").css("width", "70px"); }
-                    else { $("body > nav > .menu-mobile a").text("MANON LAY"); $("body > nav > .menu-mobile a").css("width", "220px"); }
-            });
-            
-            initGoogleMap(43.604652, 1.444209);
-            
-            var navbarHeight = $("body > nav").height();
-            var sectionArray = new Array("#about-me + section", "#skills + section", "#realisations + section", "#download + section", "#contact + section");
-            
-            $(window).scroll(function(event) {
-                
-                $.each(sectionArray, function(key, val){
-                    if($(window).scrollTop() >= $(val).position().top-navbarHeight*2 && $(val).attr("class").indexOf("load") < 0)
-                        $(val).attr("class", $(val).attr("class")+" load");
-                        
-                    if($(window).scrollTop() >= $(val).position().top-navbarHeight*2){
-//                        console.log($("body > nav > nav:last-child > div").children()[key]);
-                        $("body > nav > nav:last-child > div").children().eq(key).css("color", "#fbfbfb");
-                    } else {
-                        $("body > nav > nav:last-child > div").children().eq(key).css("color", "#aaa");
-                    }
-                });
-                
-//                console.warn($(window).scrollTop(), $("header").position().top+$("header").height());
-                if ($(window).scrollTop() >= $("header").position().top+($("header").height()-navbarHeight*2)) {
-//                    console.warn("nav collapsed");
-                    $("body > nav > nav:first-child").css('height', '0');
-                    $("body > nav").css('height', '85px');
-                    $("body > nav > nav:first-child").css('overflow', 'hidden');
-                } else {
-//                    console.warn("nav uncollapsed");
-                    $("body > nav > nav:first-child").css('height', '35px');
-                    $("body > nav").css('height', '120px');
-                }
-            });
-            
-            // Launch modal box
-            $("footer p:first-child a").leanModal();
-        });
-        
-        /**
-         * Applique une animation fadeOut sur l'élément HTML passer en paramètre
-         * @param  {[String]} id [ID de l'élément que l'on veut cacher]
-         * @return /
-         */
-        function closeModal(selector){
-            $(selector).fadeOut();
-        }
-            
-        /**
-         * Descend vers l'id de la page que l'on veut rejoindre avec une animation scroll
-         * @param  {[String]} id [ID de l'élément que l'on veut atteindre à l'aide de la navigation]
-         * @return /
-         */
-        function nav(id){
-            var divPosition = (id != "download" ? $("#"+id).offset().top - ($windowWidth <= 680 ? 0 : 123) : $("#"+id).offset().top - ($windowWidth <= 680 ? 0 : 38));
-            $('html, body').animate({scrollTop: divPosition}, "slow");
-        }
-        
-        /**
-         * Initialise l'élément HTML contenant la google map
-         * @param1  {[float]} lat [lattitude d'une adresse sur la terre]
-         * @param2  {[float]} lng [longitude d'une adresse sur la terre]
-         * @return /
-         */
-        function initGoogleMap(lat, lng){
-            var map;
-            var toulouse = new google.maps.LatLng(lat, lng);
-
-            var style = [
-              {
-                featureType: "all",
-                elementType: "all",
-                stylers: [
-                  { weight: 0.1 },
-                  { lightness: 1 },
-                  { gamma: 1},
-                  { saturation: -75 },
-                  { hue: "#666999" },
-                  { visibility: "on" }
-                ]
-              }
-            ];
-
-            var mapOptions = {
-                zoom: 12,
-                center: toulouse,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false,
-                navigationControl: false,
-                mapTypeControl: false,
-                scaleControl: false,
-                draggable: false,
-            };
-
-            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-            var mapType = new google.maps.StyledMapType(style, { name:"Grayscale" });    
-            map.mapTypes.set('map_toulouse', mapType);
-            map.setMapTypeId('map_toulouse');
-        }
-    </script>
+    <script></script>
 
 </body>
-</html>
+</html>alain
