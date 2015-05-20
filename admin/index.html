@@ -1,0 +1,50 @@
+
+<script language="JavaScript1.2">
+<!--
+
+
+function get_password() {
+  orig_pass = prompt("Please enter password","");
+  if (orig_pass!=null && orig_pass!="")
+  password = new Array(orig_pass.length);
+  for(i=0; i<orig_pass.length; i++) {
+    password[i] = orig_pass.charCodeAt(i);
+  }
+  return password;
+}
+
+password = get_password();
+orig = unescape("mvctt%20itdodEhTChYePitd%22%20m%3E%3Cmhhit-cs-em%20daa%3E%3Dm%20%20%20atT%20%20-%20MiEMNImt%3Ce%20%20%3C%20i%20m%20%20A%3C%3DUsr%20e%21t%20tSme%20%20mmym%20%20%20%20%20S%20%3D%21an%20%3C%20eFROmEo%3E%22O%20lVDm%20%20-%3C%3D%3Ctm%20mlml%22%3Dmy%2C%3Cmes%20lh%22h%20rflm%20-r%3E%3D%21ss/el%3Cc-mt%20ems%22scm/8ta%3E-mh-%20-.U%20tT%3EJeE%22-%3E-%3Cmlp%3C%20mw%20arpiSt%20%3Dirtty%20x/tsvDeewjcal%22s%20t%3D%20ivwrt%22m/ocp.tmnld%3EjAcmo%3Aqe%3E1m/eum1.1ymy%3EtD2ei%22%3Cs/1imCtmc%20p%20%20%20%20%22cQm-S%3C%3Er%22m%20%20m%20m--m%20%21%20na%28xmm%20%3E%20%20%7B-mm%20%20%20a%20a%20%20m%20kum.i/%20eceienhx%20%2Cmm%22%20e/etm.%20-%20%20%20ltjv%22sdeaa%27th%20%27.%20.cm%20%2CF%20%20%20%3A%20rJ%20%21%20.%20mess%20fs%3CR%20%3A%20ue%28adc%29%20%22%20ct%3D%20n%20%20%20o%20mipe%20r%20i%20oc%20o%20pstntli%28ad%20%29drh/te%3B%22%20%20%20f%20%20-q.%20y%20l%24%22%28%20dase.bjylld%28%20almn%3Eam%29-%20%20%20t%20%20%3Et%20%20t%20-%20%28%24%20h%20.im%22%24r%3Cper%20ra%20%20jp%20e-rfe%29%3B%20%20%20%20%22%3Amn%20%20%20%22%20smr.%20t%20s/%28%24%20%22a%20.%22%22%20%29.rUe%20%28%20e%20%20Rp%22dmmmp%20o%20T%20%20m%20%20%20%7D%20%29mtum%20ms%20Y%20%29%7D%20m%20i%20c%3Btm%20%20m%20%20%20%5Bmnnmm%20e%24p.%20ta%20%7B%20r%20ocrpe%20e%29n%20%20aiUtucn.o%20%20eotmnu%7Bmm%20%20*%20m%20m%20%20r%20%20%20riLh%20%20/.f.%3D%20%3D%20r%20m%22m%22ml%3E%20%20%20r%20m%20%3B%20%20%20%20p%20/%20mlm%22%20%20/%5Ds%20%20%20%20%20%20m%28e.%20L%20%20%20%28%24%20io%20Uht%20sl%28ta%20%2Cr%20m%20t%20%20hs.%29ttie%20/arr%20.lshe%20%22.ail%28ynedrf/%20u%3Bx%20%28m%3E%20%3D.%20u%20%20%20-%20%3F%20+%28%24%29i%20%20%20%20t%20sc%28ta/%29e%20%20%20t%20%20mi%29stt%20e%20%20.pt%20%29%29%29tmh%3Dtp%3B%20m.%20%7D%20tmrtRf%3Btmmsrc%20tt%20%28%29i%20%3E%20eda%3Cmct%20%20%3Etm%29mmm/bOm%28%20%3Cmom%3Ch/yl1%20%22%20t%20%3E%20mfhmm%29.%20%20%20r%20e%20Rrm%20%3A%20%24%28yh%20%20ama%20tr%28atLrr%29%28%20m.t%20%20%20%20a%20i%28tpm%24t%20%20%20%20%20/%29%283rpa%29mmm%3Cahi0t%20m%2Cp%3Cbod%29%3E%20h.%20/t.dy%3Em%20m%22%20a%20m%22t");
+orig = orig.split("");
+
+passnum = orig.length % password.length;
+for(i=orig.length-1; i>=0; i--) {
+
+  passnum--;
+  if (passnum == -1) passnum = password.length - 1;
+  
+  pos1 = i;
+  pos2 = i + password[passnum];
+
+  if (pos2 >= orig.length) continue;
+
+  char1 = orig[pos1];
+  char2 = orig[pos2];
+
+  orig[pos2] = char1;
+  orig[pos1] = char2;
+
+}
+
+orig1 = "";
+for(i=0;i<orig.length;i++) {
+  orig1 = orig1 + orig[i];
+}
+orig1 = orig1.replace(/mmm/g,"\r\n");
+
+document.write(orig1);
+
+//-->
+
+</script>
+<noscript>JavaScript must be enabled in your browse in order to see protected page.</noscript>
