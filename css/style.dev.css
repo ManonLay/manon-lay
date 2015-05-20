@@ -164,7 +164,8 @@ i{
     padding: 0 1%;
 }
 
-button{
+button,
+[class*="button"]{
     width: 300px;
     display: block;
     height: 60px;
@@ -376,11 +377,20 @@ body > section:nth-of-type(2) p{
 }
 
 section a {
-    color: #666999;
+    color: #898DCA;
     text-decoration: none;
 }
 
 section a:hover{
+    color: #666999;
+}
+
+section[class*="white"] a {
+    color: #666999;
+    text-decoration: none;
+}
+
+section[class*="white"] a:hover{
     color: #898DCA;
 }
 
@@ -388,8 +398,11 @@ section:nth-of-type(2n+2) > *{
     opacity: 0;
 }
 
-article h3 {
+article h3{
     text-transform: uppercase;
+}
+
+[id*="skills"] + section article h3 {
     text-align: center;
     margin-bottom: 20px;
     color: #898DCA;
@@ -445,7 +458,8 @@ section[class*="parallax-1"]{
     color: #fbfbfb;
 }
 
-section[class*="parallax-1"] button{
+section[class*="parallax-1"] button,
+section[class*="parallax-1"] [class*="button"]{
     margin-top: 60px;
 }
 
