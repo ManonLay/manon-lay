@@ -385,12 +385,14 @@ section a:hover{
     color: #666999;
 }
 
-section[class*="white"] a {
+section[class*="white"] a,
+[class*="modal-box"] a {
     color: #666999;
     text-decoration: none;
 }
 
-section[class*="white"] a:hover{
+section[class*="white"] a:hover,
+[class*="modal-box"] a:hover {
     color: #898DCA;
 }
 
@@ -419,6 +421,17 @@ article > img{
     background-position: center;
     background-size: cover;
     height: 250px;
+    position: relative;
+}
+
+[class*="portfolio"] article div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(51, 51, 51, 0.6);
+    z-index: 0;
 }
 
 [class*="portfolio"] article > *{
@@ -430,23 +443,25 @@ article > img{
     line-height: 125px;
     text-align: center;
     width: 100%;
-    text-shadow: 1px 1px 1px #fbfbfb;
+/*    text-shadow: 1px 1px 1px #fbfbfb;*/
+    color: #fbfbfb;
+    z-index: 9999;
+    position: relative;
+}
+
+[class*="portfolio"] article p {
+    line-height: 25px;
 }
 
 [class*="portfolio"] article h3{
-    font-size: 2rem;
+    font-size: 1.1rem;
+    line-height: 55px;
+    margin-bottom: 30px;
+    padding-top: 20px;
 }
 
 [class*="portfolio"] article p{
-    font-size: 1.5rem;
-}
-
-[class*="portfolio"] article:hover{
-    filter: grayscale();
-    -webkit-filter: grayscale();
-    -moz-filter: grayscale();
-    -ms-filter: grayscale();
-    -o-filter: grayscale(); 
+    font-size: 0.9rem;
 }
 
 [class*="portfolio"] article:hover > *{
@@ -546,7 +561,7 @@ footer a:hover{
 }
 
 .module.parallax-1 {
-    background-image: url("../img/picture.for.parallax.jpg");
+    background-image: url("../img/parallax.png");
     background-position: 0% 0%;
 	width: 100%;
 }
