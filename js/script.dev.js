@@ -77,6 +77,7 @@ $(document).ready(function(){
     /* ====================================================
     =================== VALIDATION FORM ===================
     ==================================================== */
+    var messageBox = $("#messageBox");
     // Méthode d'expression régulière
     $.validator.addMethod("regex", function(value, element, regexpr) {          
         return regexpr.test(value);
@@ -84,7 +85,7 @@ $(document).ready(function(){
 
     $("#contactForm").validate({
         submitHandler: function() {
-            send();
+            send(messageBox);
         },
         rules: {
             mail: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/ }
@@ -166,11 +167,11 @@ function initGoogleMap(lat, lng){
 }
 
 /**
- * Descend vers l'id de la page que l'on veut rejoindre avec une animation scroll
- * @param  {[String]} id [ID de l'élément que l'on veut atteindre à l'aide de la navigation]
+ * Créer une requête xHTTP pour envoyer le formulaire
+ * @param  {[Objet DOM]} domElt [Element du DOM dans lequel le résultat de l'envoi s'affichera]
  * @return /
  */
-function send(){
+function send(domElt){
     console.info("sending");
     $.ajax({
         url: "php/mail.php",
@@ -184,7 +185,7 @@ function send(){
         },
         success: function(text) {
             console.info(text);
-            $("#messageBox").html(text);
+            $(domElt).html(text);
         }
     });
 }
