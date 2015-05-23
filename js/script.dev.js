@@ -172,7 +172,7 @@ function initGoogleMap(lat, lng){
  * @return /
  */
 function send(domElt){
-    console.info("sending");
+    // console.info("sending");
     $.ajax({
         url: "php/mail.php",
         type: "post",
@@ -184,8 +184,16 @@ function send(domElt){
             message: $("#message").val()
         },
         success: function(text) {
-            console.info(text);
+            console.info("Sending success ==> ", text);
             $(domElt).html(text);
+        },
+        complete: function(text) {
+            console.info("Sending complete ==> ", text);
+            $(domElt).html(text);
+        },
+        error: function(text) {
+            console.info("Sending error ==> ", text);
+            $(domElt).html("Erreur de l'envoi ==> ", text);
         }
     });
 }
