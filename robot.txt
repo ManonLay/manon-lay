@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+
+User-Agent: Googlebot-Image
+Disallow: /img/
+
+Sitemap: http://manonlay.com/sitemap.xml
