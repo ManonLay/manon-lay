@@ -73,6 +73,30 @@ $(document).ready(function(){
 
     // Launch modal box
     $("footer p:first-child a").leanModal();
+    
+    /* ====================================================
+    =================== VALIDATION FORM ===================
+    ==================================================== */
+    // Méthode d'expression régulière
+    $.validator.addMethod("regex", function(value, element, regexpr) {          
+        return regexpr.test(value);
+    }, "L'adresse email ou le numéro de passe n'est pas valide.");
+
+    $("#contactForm").validate({
+        submitHandler: function() {
+            send();
+        },
+        rules: {
+            mail: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/ }
+        },
+        messages: {
+            nom: "Le nom est obligatoire.<br>",
+            mail: "L'adresse mail est obligatoire ou n'est pas valide.<br>",
+            objet: "L'objet du message est obligatoire.<br>",
+            message: "Le message est obligatoire et accepte au moins 5 caractères.<br>"
+        },
+        errorLabelContainer: "#messageBox"
+    });
 });
 
 
@@ -164,27 +188,3 @@ function send(){
         }
     });
 }
-
-/* ====================================================
-=================== VALIDATION FORM ===================
-==================================================== */
-// Méthode d'expression régulière
-$.validator.addMethod("regex", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "L'adresse email ou le numéro de passe n'est pas valide.");
-
-$("#contactForm").validate({
-    submitHandler: function() {
-        send();
-    },
-    rules: {
-        mail: { regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/ }
-    },
-    messages: {
-        nom: "Le nom est obligatoire.<br>",
-        mail: "L'adresse mail est obligatoire ou n'est pas valide.<br>",
-        objet: "L'objet du message est obligatoire.<br>",
-        message: "Le message est obligatoire et accepte au moins 5 caractères.<br>"
-    },
-    errorLabelContainer: "#messageBox"
-});
