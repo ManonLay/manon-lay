@@ -484,7 +484,8 @@ body > section:last-of-type button{
     border-radius: 8px;
 }
 
-span[id*="messageBox"]{
+span[id*="messageBox"],
+span[id*="resultMessage"]{
     display: block;
     margin: 10px auto 0 auto;
     width: 88%;
