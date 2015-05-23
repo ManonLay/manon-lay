@@ -77,7 +77,7 @@ $(document).ready(function(){
     /* ====================================================
     =================== VALIDATION FORM ===================
     ==================================================== */
-    var messageBox = $("#messageBox");
+    var messageBox = $("#resultMessage");
     // Méthode d'expression régulière
     $.validator.addMethod("regex", function(value, element, regexpr) {          
         return regexpr.test(value);
@@ -189,7 +189,7 @@ function send(domElt){
         },
         complete: function(text) {
             console.info("Sending complete ==> ", text);
-            $(domElt).html(text);
+            $(domElt).html(text.responseText);
         },
         error: function(text) {
             console.info("Sending error ==> ", text);
