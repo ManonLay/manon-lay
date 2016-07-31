@@ -1,0 +1,849 @@
+/* ============================================== GENERAL ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    transition: 220ms;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -o-transition: 220ms;
+    -ms-transition: 220ms;
+/*    font-family: 'Open Sans', sans-serif;*/
+    font-weight: 300;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body{
+/*    background-color: #fbfbfb;*/
+    font: 100%/1.125em 'Open Sans', sans-serif;
+    padding-top: 120px;
+}
+
+.wrap-content{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+a{
+    cursor: pointer;
+}
+
+i{
+    width: 15px;
+    text-align: center;
+}
+
+/* FLOATING CONTENT */
+
+[class^="left"],
+[class^=" left"]{
+    float: left;
+}
+
+[class^="right"],
+[class^=" right"]{
+    float: right;
+}
+
+/* TRIANGLE SECTION SEPARATOR */
+
+[class^="triangle-separator"],
+[class^=" triangle-separator"]{
+    position: relative;
+    text-align: center;
+    padding-bottom: 45px;
+    /*margin-top: -45px;*/
+}
+
+[class^="triangle-separator"] > img,
+[class^=" triangle-separator"] > img{
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: -20px;
+    display: block;
+}
+
+[class^="triangle-separator-inverse"],
+[class^=" triangle-separator-inverse"]{
+    position: relative;
+    text-align: center;
+    padding-bottom: 0px;
+    /*margin-top: -45px;*/
+}
+
+[class^="triangle-separator-inverse"] > img,
+[class^=" triangle-separator-inverse"] > img{
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 45px;
+    display: block;
+}
+
+/* BACKGROUND WHITE AND BLACK */
+
+[class^="white"],
+[class^=" white"],
+[class*="white"]{
+    background: #fbfbfb;
+    color: #333;
+}
+
+[class^="black"],
+[class^=" black"],
+[class*="black"]{
+    background: #333;
+    color: #fbfbfb;
+}
+
+/* COLUMNS */
+
+[class*="col-"]{
+    float:left;
+}
+
+[class*="col-"]:first-child{
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+[class*="col-"]:last-child{
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+[class^="col-2"],
+[class^=" col-2"]{
+    width: 50%;
+    padding: 0 2%;
+}
+
+[class^="col-3"],
+[class^=" col-3"]{
+    width: 33.33333333%;
+    padding: 0 2%;
+}
+
+[class^="col-3-margin"],
+[class^=" col-3-margin"]{
+    width: 31.33333333%;
+    margin: 0.5% 0.5%;
+}
+
+[class^="col-4"],
+[class^=" col-4"]{
+    width: 25%;
+    padding: 0 2%;
+}
+
+[class^="col-5"],
+[class^=" col-5"]{
+    width: 20%;
+    padding: 0 1%;
+}
+
+[class^="col-6"],
+[class^=" col-6"]{
+    width: 16.6666666667%;
+    padding: 0 1%;
+}
+
+[class^="col-8"],
+[class^=" col-8"]{
+    width: 12.5%;
+    padding: 0 1%;
+}
+
+[class^="col-12"],
+[class^=" col-12"]{
+    width: 8.33333333333%;
+    padding: 0 1%;
+}
+
+button,
+[class*="button"]{
+    width: 300px;
+    display: block;
+    height: 60px;
+    color: #fbfbfb;
+    font-size: 1rem;
+    margin: 0 auto;
+    background: #666999;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 5px solid #3F4164;
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+button:hover{
+    border-bottom: 0px solid #666999;
+    background: #3F4164;
+    transition-duration: 0.1s;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="search"],
+textarea{
+    width: 400px;
+    display: block;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: none;
+    border-radius: 1px;
+    padding: 10px;
+    margin: 0 auto 20px auto;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #fbfbfb;
+}
+
+textarea{
+    height: 100px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="search"]:focus,
+textarea:focus{
+    outline: none;
+    border: 1px solid #666999;
+}
+
+/* ============================================== END GENERAL ============================================== */
+/* ============================================== NAVIGATION ============================================== */
+body > *{
+    width: 100%;
+}
+
+body > nav{
+    height: 120px;
+    background: #333;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+body > nav > nav:first-of-type{
+    height: 35px;
+    background: #4e4e4e;
+}
+
+body > nav > nav:last-of-type{
+    height: 85px;
+}
+
+nav a{
+    color: #aaa;
+    display: inline-block;
+    text-decoration: none;
+}
+
+body > nav > nav:first-of-type a{
+    margin-left: 20px;
+    font-size: .75em;
+    line-height: 35px;
+}
+
+body > nav > nav:first-of-type div:last-of-type a{
+    margin-left: 10px;
+}
+
+body > nav > nav:last-of-type a,
+body > nav > .menu-mobile a{
+    line-height: 85px;
+    margin-left: 20px;
+    text-transform: uppercase;
+    font-size: .75em;
+    letter-spacing: 2px;
+}
+
+nav a:hover{
+    color: #fbfbfb;
+}
+
+nav a[class="active"]{
+    color: #fbfbfb;
+}
+
+nav [class*="logo"]{
+    width: 220px;
+    height: 70px;
+    text-align: right;
+    margin-top: 9px;
+    line-height: 65px !important;
+    background: url(../img/logoManonLay.svg) no-repeat;
+    background-size: 65px;
+    font-family: 'Univers-Light',sans-serif;
+    font-size: 1.0625rem !important;
+    color: #fbfbfb;
+}
+
+body > nav > .menu-mobile{
+    display: none;
+    overflow: hidden;
+}
+
+body > nav > .menu-mobile div{
+    position: relative;
+}
+
+body > nav > .menu-mobile select{
+    background: transparent;
+    width: 150px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    height: 34px;
+    color: #ccc;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    margin-top: 25.5px;
+    text-transform: uppercase;
+    font-size: .75em;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+body > nav > .menu-mobile div i.navigation-caret{
+    position: absolute;
+    top: 32px;
+    right: 0;
+    color: #ccc;
+}
+/* ============================================== END NAVIGATION ============================================== */
+/* ============================================== HEADER ============================================== */
+header > h1{
+    line-height: 550px;
+    color: #fbfbfb;
+    text-align: center;
+    font-size: 5em;
+    text-transform: uppercase;
+}
+/* ============================================== END HEADER ============================================== */
+/* ============================================== MAIN CONTENT ============================================== */
+section{
+    /*padding: 80px 0 125px 0;*/
+    padding: 45px 0 175px 0;
+}
+
+section i{
+    margin-right: 15px;
+}
+
+body > section:nth-of-type(2n+2){
+    overflow: hidden;
+}
+
+section h1{
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0 0 80px;
+    line-height: 3rem;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0 0 80px;
+  line-height: 3rem;
+}
+
+section p{
+    line-height: 25px;
+    text-align: justify;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+body > section:nth-of-type(2) p{
+    width: 88%;
+    margin: 0 auto;
+}
+
+section a {
+    color: #898DCA;
+    text-decoration: none;
+}
+
+section a:hover{
+    color: #666999;
+}
+
+section[class*="white"] a,
+[class*="modal-box"] a {
+    color: #666999;
+    text-decoration: none;
+}
+
+section[class*="white"] a:hover,
+[class*="modal-box"] a:hover {
+    color: #898DCA;
+}
+
+section:nth-of-type(2n+2) > *{
+    opacity: 0;
+}
+
+article h3{
+    text-transform: uppercase;
+}
+
+[id*="skills"] + section article h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #898DCA;
+}
+
+article > img{
+    margin: 0 auto 40px auto;
+    display: block;
+    /* width: 100%; */
+    height: 140px;
+}
+
+[class*="portfolio"] article{
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    position: relative;
+}
+
+[class*="portfolio"] article div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(51, 51, 51, 0.6);
+    z-index: 0;
+}
+
+[class*="portfolio"] article > *{
+    opacity: 0;
+}
+
+[class*="portfolio"] article h3,
+[class*="portfolio"] article p{
+    line-height: 125px;
+    text-align: center;
+    width: 100%;
+/*    text-shadow: 1px 1px 1px #fbfbfb;*/
+    color: #fbfbfb;
+    z-index: 9999;
+    position: relative;
+}
+
+[class*="portfolio"] article p {
+    line-height: 25px;
+}
+
+[class*="portfolio"] article h3{
+    font-size: 1.1rem;
+    line-height: 55px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+
+[class*="portfolio"] article p{
+    font-size: 0.9rem;
+}
+
+[class*="portfolio"] article:hover > *{
+    opacity: 1;
+}
+
+section[class*="parallax-1"]{
+    padding-top: 130px;
+    color: #fbfbfb;
+}
+
+section[class*="parallax-1"] button,
+section[class*="parallax-1"] [class*="button"]{
+    margin-top: 60px;
+}
+
+body > section:last-of-type button{
+    height: 40px;
+    width: 400px;
+    border-radius: 8px;
+}
+
+span[id*="messageBox"],
+span[id*="resultMessage"]{
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 88%;
+}
+
+.g-recaptcha{
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 88%;
+}
+
+body > section:last-of-type h3{
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+body > section:last-of-type ul{
+    list-style-type: none;
+}
+
+body > section:last-of-type li{
+    margin-bottom: 20px;
+}
+
+body > section:last-of-type {
+    padding-bottom: 50px;
+    padding-top: 0px;
+}
+
+[id*="map"]{
+    height: 300px;
+}
+/* ============================================== END MAIN CONTENT ============================================== */
+/* =================================================== FOOTER =================================================== */
+
+footer{
+    height: 35px;
+    background: #333;
+    overflow: hidden;
+}
+
+footer p{
+    line-height: 35px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: .75em;
+}
+
+footer p:first-child{
+    text-align: left;
+}
+
+footer p:last-child{
+    text-align: right;
+}
+
+footer a{
+    color: #fbfbfb;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #666999;
+}
+/* ================================================= END FOOTER ================================================= */
+/* ================================================== PARALLAX ================================================== */
+
+
+.module.parallax{
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	/* margin-bottom: 60px; */
+	background-size: cover;
+}
+
+.module.parallax-0 {
+	background-image: url("../img/desk2.jpg");
+    background-position: 0% 0%;
+	width: 100%;
+}
+
+.module.parallax-1 {
+    background-image: url("../img/parallax.png");
+    background-position: 0% 0%;
+	width: 100%;
+}
+
+/* .module.parallax-2 {
+    background-image: url("../img/work.jpg");
+}
+
+.module.parallax-3 {
+    background-image: url("../img/contactus_banner.jpg");
+} */
+
+div.module.parallax h1{
+	font-size: 100px;
+	color: rgba(251,251,251,0.9);
+	font-weight: 300;
+	padding: 5% 0;
+}
+
+/* ============================================== END PARALLAX ================================================= */
+/* ============================================= TRIANGLE LABEL ================================================ */
+
+[class*="label"]{
+    position: absolute;
+}
+
+[class^="label-left"],
+[class^=" label-left"]{
+    left: -21px;
+    top: 48%;
+    border-width: 16.5px 21.7px 16.5px 0;
+    border-color: transparent #fbfbfb transparent transparent;
+    _border-color: #000000 #fbfbfb #000000 #000000;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    line-height: 0px;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+[class^="label-right"],
+[class^=" label-right"]{
+    right: -21px;
+    z-index: 9999;
+    top: 48%;
+    border-width: 16.5px 0 16.5px 21.7px;
+    border-color: transparent transparent transparent #fbfbfb;
+    _border-color: #000000 #000000 #000000 #fbfbfb;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    line-height: 0px;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+[class^="label-bottom"],
+[class^=" label-bottom"]{
+    bottom: -21px;
+    right: 48%;
+    z-index: 9999;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    line-height: 0px;
+    border-width: 21.7px 16.5px 0 16.5px;
+    border-color: #fbfbfb transparent transparent transparent;
+    _border-color: #fbfbfb #000000 #000000 #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+[class^="overflow"],
+[class^=" overflow"]{
+    overflow-y: hidden;
+}
+
+/* .label:before{
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    width:100px; height:100px;
+    background : #fbfbfb;
+    transform-origin:0 100%;
+    transform : rotate(-45deg);
+} */
+/* =========================================== END TRIANGLE LABEL ============================================== */
+/* ================================================= FADEIN ELT ================================================ */
+
+.load > * {
+    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.5s; /* Firefox < 16 */
+        -ms-animation: fadein 0.5s; /* Internet Explorer */
+         -o-animation: fadein 0.5s; /* Opera < 12.1 */
+            animation: fadein 0.5s;
+
+    opacity: 1 !important;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* =============================================== END FADEIN ELT ============================================== */
+/* ================================================= MODAL BOX ================================================= */
+
+[id="lean-overlay"] {
+    position: fixed;
+    z-index:100;
+    top: 85px !important;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+[class="modal-box"]{
+    width: 75%;
+    padding: 30px;
+    position: relative;
+    top: 60px;
+    left: 12.5%;
+    max-height: 400px;
+    background: #FFF;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+    overflow: auto;
+}
+
+.close-modal{
+    /* position: absolute;
+    top: 15px;
+    right: 15px; */
+    position: fixed;
+    top: 155px;
+    right: 13.5%;
+    cursor: pointer;
+    color: #ddd;
+}
+
+.close-modal:hover{
+    color: #bf5353;
+}
+
+.modal-box h3 {
+  margin: 20px 0 10px 0;
+}
+
+/* =============================================== END MODAL BOX =============================================== */
+/* =============================================== MEDIA QUERIES =============================================== */
+
+
+@media only screen and (min-width: 40.063em){
+    [class^="triangle-separator"] > img,
+    [class^=" triangle-separator"] > img{
+        top: -40px;
+        height: 40px;
+    }
+
+    [class^="triangle-separator-inverse"] > img,
+    [class^=" triangle-separator-inverse"] > img{
+        top: 45px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .wrap-content{
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 850px) {
+    body > nav > nav:last-child{
+        display: none;
+    }
+
+    body > nav > .menu-mobile{
+        display: inherit;
+    }
+
+    [class^="col-3"],
+    [class^=" col-3"]{
+        width: 50%;
+        padding: 0 2%;
+    }
+
+    [class^="col-3-margin"],
+    [class^=" col-3-margin"]{
+        width: 48%;
+        margin: 0.5% 0.5%;
+    }
+
+    body > section:last-of-type [class*="col-2"]{
+        width: 100%;
+        float: none;
+    }
+
+    body > section:last-of-type article:last-of-type{
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 720px) {
+    [class^="col-2"],
+    [class^=" col-2"]{
+        width: 100%;
+        float: none;
+    }
+}
+
+@media (max-width: 580px) {
+    [class*="col-"]{
+        width: 100%;
+        float: none;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="search"], textarea,
+    body > section:last-of-type button {
+        width: 300px;
+    }
+
+    footer{
+        height: 70px;
+    }
+
+    footer [class*="left"],
+    footer [class*="right"]{
+        float: none;
+        text-align: center !important;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body h1{
+        font-size: 30px;
+    }
+
+    body p{
+
+    }
+}
+/* ============================================== END MEDIA QUERIES ============================================== */

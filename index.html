@@ -11,10 +11,8 @@
     <link rel="icon" type="image/png" href="img/flavicon.png" />
     <title>Manon Lay - Graphiste & webdesigner</title>
     <!-- CSS Style -->
-        <!-- FOR DEV
-    <link rel="stylesheet" href="css/style.dev.css"> -->
-        <!-- MIN -->
-    <link rel="stylesheet" href="css/style.min.css">
+    <!-- MIN -->
+    <link rel="stylesheet" href="css/style.css">
     <!-- FONT AWESOME  CSS-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- JQUERY.JS -->
@@ -25,10 +23,11 @@
     <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
     <!-- JQUERY VALIDATOR PLUGIN .JS -->
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-    <!-- MAIN SCRIPT .JS -->
-        <!-- FOR DEV
-    <script type="text/javascript" src="js/script.dev.js"></script> -->
-        <!-- MIN -->
+    <!-- GOOGLE RECAPTCHA -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- FOR DEV -->
+    <!-- <script type="text/javascript" src="js/script.dev.js"></script> -->
+    <!-- MIN -->
     <script type="text/javascript" src="js/script.min.js"></script>
 </head>
 <body>
@@ -36,21 +35,19 @@
     <!-- =========================================================== NAVIGATION =========================================================== -->
 
     <nav>
-      
+
         <nav>
             <nav class="wrap-content">
                 <div class="left">
-                    <!--<a href="tel:0637167498"><i class="fa fa-phone"></i> 06 37 16 74 98</a>-->
-                    <a href="mailto:manon_lay@hotmail.fr"><i class="fa fa-envelope-o"></i> manon_lay@hotmail.fr</a>
+                    <a href="mailto:contact@manonlay.com"><i class="fa fa-envelope-o"></i> contact@manonlay.com</a>
                 </div>
                 <div class="right">
                     <a href="https://www.pinterest.com/manon_lay/" target="_blank"><i class="fa fa-pinterest-p"></i></a>
-                    <!-- <a href="" target="_blank"><i class="fa fa-instagram"></i></a> -->
                     <a href="https://fr.linkedin.com/pub/manon-lay/b4/5b6/127" target="_blank"><i class="fa fa-linkedin"></i></a>
                 </div>
             </nav>
         </nav>
-        
+
         <nav class="wrap-content menu-mobile">
             <a onclick="nav('home');" class="left logo">Manon Lay</a>
             <div class="right">
@@ -66,7 +63,7 @@
                 <i class="fa fa-angle-down navigation-caret"></i>
             </div>
         </nav>
-        
+
         <nav class="wrap-content">
             <a onclick="nav('home');" class="left logo">Manon Lay</a>
             <div class="right">
@@ -77,21 +74,21 @@
                 <a onclick="nav('contact');">Contact</a>
             </div>
         </nav>
-        
+
     </nav>
 
     <!-- ======================================================== END NAVIGATION =========================================================== -->
 
     <!-- ===================================================== MAIN CONTENT ================================================================= -->
-    
+
     <header class="module parallax parallax-0" id="home">
         <h1>Bienvenue</h1>
     </header>
-    
+
     <section class="triangle-separator white" id="about-me">
         <img src="img/triangle.white.png" alt="Section separator">
     </section>
-    
+
     <section class="white">
         <div class="wrap-content">
             <h1>À propos de moi</h1>
@@ -100,11 +97,11 @@ Je recherche un contrat en apprentissage dans le domaine du multimédia, communi
 Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a class="page-scroll" href="#contact">contacter</a> pour tout renseignement ! </p>
         </div>
     </section>
-    
+
     <section class="triangle-separator black" id="skills">
         <img src="img/triangle.png" alt="Section separator">
     </section>
-    
+
     <section class="black">
         <div class="wrap-content">
             <h1>Mes compétences</h1>
@@ -125,11 +122,11 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             </article>
         </div>
     </section>
-    
+
     <section class="triangle-separator white" id="realisations">
         <img src="img/triangle.white.png" alt="Section separator">
     </section>
-    
+
     <section class="white portfolio">
         <div class="wrap-content">
             <h1>Mes réalisations</h1>
@@ -165,11 +162,11 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             </article>
         </div>
     </section>
-    
+
     <section class="triangle-separator-inverse white" id="download">
         <img src="img/triangle.only.white.png" alt="Section separator">
     </section>
-    
+
     <section class="module parallax parallax-1">
         <div class="wrap-content">
             <h1>Téléchargez</h1>
@@ -181,11 +178,11 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             </article>
         </div>
     </section>
-    
+
     <section class="triangle-separator black" id="contact">
         <img src="img/triangle.png" alt="Section separator">
     </section>
-    
+
     <section class="black">
         <div class="wrap-content">
             <h1>GET IN TOUCH</h1>
@@ -195,6 +192,7 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
                     <input type="email" name="mail" id="mail" placeholder="Votre adresse email *" required>
                     <input type="text" name="objet" id="objet" placeholder="L'objet de votre message *" required>
                     <textarea name="message" id="message" minlength="5" placeholder="Écrivez votre message *" required></textarea>
+                    <div class="g-recaptcha" data-sitekey="6Lc6QyUTAAAAAAyz2c7lHCtJNsCXWY4xEgL6tbOD"></div>
                     <button type="submit">ENVOYER</button>
                     <span id="messageBox"></span>
                     <span id="resultMessage"></span>
@@ -205,7 +203,7 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
                 <ul>
                     <li><i class="fa fa-connectdevelop"></i>Gestion de projet, graphisme et webdesign</li>
                     <li><i class="fa fa-map-marker"></i>Toulouse</li>
-                    <li><i class="fa fa-envelope-o"></i><a href="mailto:manon_lay@hotmail.fr">manon_lay@hotmail.fr</a></li>
+                    <li><i class="fa fa-envelope-o"></i><a href="mailto:contact@manonlay.com">contact@manonlay.com</a></li>
                     <li><i class="fa fa-pinterest-p"></i><a href="https://www.pinterest.com/manon_lay/" target="_blank">Pinterest</a></li>
                     <!-- <li><i class="fa fa-instagram"></i><a href="" target="_blank">Instagram</a></li> -->
                     <li><i class="fa fa-linkedin"></i><a href="https://fr.linkedin.com/pub/manon-lay/b4/5b6/127" target="_blank">LinkedIn</a></li>
@@ -213,16 +211,16 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             </article>
         </div>
     </section>
-    
+
     <div id="map"></div>
-    
+
     <footer>
         <div class="wrap-content">
             <p class="left">Manon LAY © 2015 | <a href="#lean-overlay">Mentions légales</a></p>
             <p class="right">Développé par <a href="https://github.com/SylvainMarty" target="_blank">SylvainMarty</a></p>
         </div>
     </footer>
-    
+
     <div id="lean-overlay">
         <div class="modal-box">
             <i class="fa fa-times close-modal" onclick="closeModal('#lean-overlay');"></i>
@@ -231,9 +229,9 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
             <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href="http://www.manonlay.com/" title="Manon LAY - www.manonlay.com">www.manonlay.com</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
             <p><strong>Propriétaire</strong> : Manon LAY – Graphiste, Webdesign & Intégration – 6 Rue de la Feuilleraie, Pibrac<br />
             <strong>Créateur</strong>  : <a href="https://github.com/SylvainMarty">Sylvain Marty</a><br />
-            <strong>Responsable publication</strong> : Manon LAY – manon_lay@hotmail.fr<br />
+            <strong>Responsable publication</strong> : Manon LAY – contact@manonlay.com<br />
             Le responsable publication est une personne physique ou une personne morale.<br />
-            <strong>Webmaster</strong> : Manon LAY – manon_lay@hotmail.fr<br />
+            <strong>Webmaster</strong> : Manon LAY – contact@manonlay.com<br />
             <strong>Hébergeur</strong> : OVH – OVH SAS – 2 rue Kellermann – 59100 Roubaix – France<br />
             Crédits : les mentions légales ont été générées et offertes par Subdelirium <a target="_blank" href="http://www.subdelirium.com/competences/creation-de-sites-web/creation-de-site-internet-en-gironde/creation-de-site-internet-bordeaux/" alt="creation site web bordeaux">création de site web Bordeaux</a></p>
 
@@ -286,6 +284,16 @@ Je vous souhaite une bonne visite de mon portfolio, n’hésitez pas à me <a cl
     </div>
 
     <!-- ================================================== END MAIN CONTENT ================================================================ -->
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-80864992-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 
 </body>
 </html>

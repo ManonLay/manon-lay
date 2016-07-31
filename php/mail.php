@@ -1,5 +1,5 @@
 <?php
-    
+
     //echo $_POST["nom"];
 
     // Récupération des variables et sécurisation des données
@@ -9,7 +9,7 @@
     $message = htmlentities($_POST['message']);
 
     // Variables concernant l'email
-    $destinataire = 'manon_lay@hotmail.fr'; // Adresse email du webmaster (à personnaliser)
+    $destinataire = 'contact@manonlay.com'; // Adresse email du webmaster (à personnaliser)
     $sujet = $objet; // Titre de l'email
     $contenu = '<html><head><title>'.$objet.'</title></head><body>';
     $contenu .= '<p>Bonjour, vous avez reçu un message à partir de votre site web.</p>';
@@ -22,10 +22,12 @@
     // Pour envoyer un email HTML, l'en-tête Content-type doit être défini
     $headers = 'MIME-Version: 1.0'."\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
+    $headers .= 'From: Manonlay.com <mail@manonlay.com>' . "\r\n";
+    $headers .= "Reply-To: $mail\r\n";
 
     // Envoyer l'email
     mail($destinataire, $sujet, $contenu, $headers); // Fonction principale qui envoi l'email
     echo '<label id="message-error" class="error" for="message">Votre message a bien été envoyé ! Je vous répondrai dans les plus bref délais.<br></label>'; // Afficher un message pour indiquer que le message a été envoyé
     // (2) Fin du code pour traiter l'envoi de l'email
-    
+
 ?>
