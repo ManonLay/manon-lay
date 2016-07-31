@@ -35,6 +35,17 @@ a{
     cursor: pointer;
 }
 
+a:hover,
+a:focus,
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="submit"]:focus,
+input[type="button"]:hover,
+input[type="submit"]:focus {
+    outline: none;
+}
+
 i{
     width: 15px;
     text-align: center;
@@ -176,17 +187,17 @@ button,
     color: #fbfbfb;
     font-size: 1rem;
     margin: 0 auto;
-    background: #666999;
+    background: #e56d6e;
     border-radius: 10px;
     border: none;
-    border-bottom: 5px solid #3F4164;
+    border-bottom: 5px solid #985858;
     transition-duration: 0.1s;
     cursor: pointer;
 }
 
 button:hover{
-    border-bottom: 0px solid #666999;
-    background: #3F4164;
+    border-bottom: 0px solid #e56d6e;
+    background: #985858;
     transition-duration: 0.1s;
 }
 
@@ -221,7 +232,7 @@ input[type="date"]:focus,
 input[type="search"]:focus,
 textarea:focus{
     outline: none;
-    border: 1px solid #666999;
+    border: 1px solid #e56d6e;
 }
 
 /* ============================================== END GENERAL ============================================== */
@@ -381,23 +392,23 @@ body > section:nth-of-type(2) p{
 }
 
 section a {
-    color: #898DCA;
+    color: #e56d6e;
     text-decoration: none;
 }
 
 section a:hover{
-    color: #666999;
+    color: #e56d6e;
 }
 
 section[class*="white"] a,
 [class*="modal-box"] a {
-    color: #666999;
+    color: #e56d6e;
     text-decoration: none;
 }
 
 section[class*="white"] a:hover,
 [class*="modal-box"] a:hover {
-    color: #898DCA;
+    color: #e56d6e;
 }
 
 section:nth-of-type(2n+2) > *{
@@ -411,7 +422,7 @@ article h3{
 [id*="skills"] + section article h3 {
     text-align: center;
     margin-bottom: 20px;
-    color: #898DCA;
+    color: #e56d6e;
 }
 
 article > img{
@@ -552,7 +563,7 @@ footer a{
 }
 
 footer a:hover{
-    color: #666999;
+    color: #e56d6e;
 }
 /* ================================================= END FOOTER ================================================= */
 /* ================================================== PARALLAX ================================================== */

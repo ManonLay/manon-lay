@@ -142,7 +142,7 @@ function initGoogleMap(lat, lng){
           { lightness: 1 },
           { gamma: 1},
           { saturation: -75 },
-          { hue: "#666999" },
+          { hue: "#e56d6e" },
           { visibility: "on" }
         ]
       }
@@ -156,6 +156,7 @@ function initGoogleMap(lat, lng){
         navigationControl: false,
         mapTypeControl: false,
         scaleControl: false,
+        streetViewControl: false,
         draggable: false,
     };
 
