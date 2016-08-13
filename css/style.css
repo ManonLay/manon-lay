@@ -346,7 +346,8 @@ header > h1{
     color: #fbfbfb;
     text-align: center;
     font-size: 5em;
-    text-transform: uppercase;
+    font-family: 'Old Standard TT', serif;
+
 }
 /* ============================================== END HEADER ============================================== */
 /* ============================================== MAIN CONTENT ============================================== */
@@ -366,9 +367,9 @@ body > section:nth-of-type(2n+2){
 section h1{
     text-align: center;
     font-size: 3rem;
-    text-transform: uppercase;
     margin: 0 0 80px;
     line-height: 3rem;
+    font-family: 'Old Standard TT', serif;
 }
 
 section h2 {
