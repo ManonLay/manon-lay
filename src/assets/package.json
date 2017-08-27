@@ -1,0 +1,17 @@
+{
+  "name": "manon-lay",
+  "version": "1.0.0",
+  "description": "Manon Lay's portfolio assets",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SylvainMarty",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
+  }
+}
