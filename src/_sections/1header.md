@@ -1,0 +1,10 @@
+---
+layout: section_header
+order: 1
+head: Bienvenue sur mon portfolio
+author_name: Manon Lay
+skill: Webdesigner / UX Designer
+accroche: |
+    Vous pouvez me suivre sur Twitter, Instagram ou Dribbble
+cover: img/header.jpg
+---

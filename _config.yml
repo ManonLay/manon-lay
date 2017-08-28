@@ -21,16 +21,20 @@ description: > # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "manonlay.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
 
 # Build settings
 markdown: kramdown
-theme: minima
+permalink: pretty
 
 source: ./src
 timezone: Europe/Paris
 
+collections:
+  sections:
+    title: Homepage sections
+  realisations:
+    output: true
+    permalink: /:name
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -39,7 +43,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - assets/node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+google_analytics: TEST

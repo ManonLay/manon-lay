@@ -7,14 +7,14 @@
 
     {% include header.html %}
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+    <main class="container-fluid" aria-label="Content">
+      {{ content }}
     </main>
 
     {% include footer.html %}
 
   </body>
+
+  <script src="{{ "/assets/bin/bundle.js" | relative_url }}"></script>
 
 </html>

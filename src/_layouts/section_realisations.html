@@ -1,0 +1,33 @@
+{% assign filtered_collection = site.collections | where: "label" , "realisations" %}
+{% assign filters = "" | split: "" %}
+
+{% for collection in filtered_collection %}
+    {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
+    {% for real in sorted_realisations %}
+        {% if real.category  %}
+            {% unless filters contains real.category %}
+                {% assign filters = filters | push: real.category %}
+            {% endunless %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-10 ml-md-auto">
+        <h2>{{ page.head }}</h2>
+        <p>
+            Filtres : {% for filtre in filters %}<a href="#{{ filtre | url_encode }}">{{ filtre }}</a>{% endfor %}
+        </p>
+        <div class="row">
+            {% for collection in filtered_collection %}
+                {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
+                {% for real in sorted_realisations limit:6 %}
+                <div class="col-xs-12 col-sm-4">
+                    <p>{{ real.title }}</p>
+                    <img src="{{ real.thumbnail | relative_url }}" alt="{{ real.title }} thumbnail">
+                </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

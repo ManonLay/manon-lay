@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <img src="{{ page.cover | relative_url }}" alt="Image de couverture - manonlay.com">
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <p>{{ page.head }}</p>
+        <h1>{{ page.author_name }}</h1>
+        <h2>{{ page.skill }}</h2>
+        <p>{{ page.accroche | markdownify }}</p>
+    </div>
+</div>
