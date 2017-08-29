@@ -14,20 +14,26 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Manon LAY
-email: contact@manonlay.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+author_name: Manon Lay
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "manonlay.com" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Build settings
-markdown: kramdown
-permalink: pretty
-
-source: ./src
-timezone: Europe/Paris
+footer:
+  head: Get in touch
+  networks:
+      - icon: fa fa-connectdevelop
+        name: Gestion de projet, graphisme et webdesign
+      - icon: fa fa-map-marker
+        name: Toulouse
+      - icon: fa fa-envelope-o
+        url: mailto:contact@manonlay.com
+        name: contact@manonlay.com
+      - icon: fa fa-pinterest-p
+        url: https://www.pinterest.com/manon_lay/
+        name: Pinterest
+      - icon: fa fa-linkedin
+        url: https://fr.linkedin.com/pub/manon-lay/b4/5b6/127
+        name: LinkedIn
 
 collections:
   sections:
@@ -35,6 +41,13 @@ collections:
   realisations:
     output: true
     permalink: /:name
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+source: ./src
+timezone: Europe/Paris
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

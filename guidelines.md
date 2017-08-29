@@ -15,7 +15,6 @@ Propriétés générales :
 
 Types de sections et props dédiées :
 * Introduction
-    - author_name
     - skill
     - accroche
     - cover

@@ -11,7 +11,9 @@
 
   <body>
 
-    <header class="site-header" role="banner">
+    <div id="app">
+
+      <header class="site-header" role="banner">
 
   <div class="wrapper">
     
@@ -51,8 +53,8 @@
 </header>
 
 
-    <main class="container-fluid" aria-label="Content">
-      <article class="post">
+      <main class="container-fluid" aria-label="Content">
+        <article class="post">
 
   <header class="post-header">
     <h1 class="post-title">About</h1>
@@ -74,9 +76,84 @@
 
 </article>
 
-    </main>
+      </main>
 
-    <footer class="site-footer">
+      <div class="row">
+    <div class="col-12">
+
+        <!-- HEAD -->
+        <div class="row">
+            <div class="col-12">
+                <h2>Get in touch</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- CONTACT FORM -->
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" v-model="contact.name" placeholder="Votre nom et prénom *">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" v-model="contact.email" placeholder="Votre adresse email *">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" v-model="contact.subject" placeholder="Objet de votre message *">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" v-model="contact.message" placeholder="Votre message *"></textarea>
+                </div>
+                <button class="btn btn-primary" @click="sendEmail()"><i class="fa fa-long-arrow-right"></i>&nbsp; Envoyer</button>
+            </div>
+
+            <!-- INFOS -->
+            <div class="col-12 col-sm-6">
+                <p>Manon Lay</p>
+                <ul>
+                    
+                    <li>
+                        <i class="fa fa-connectdevelop"></i>&nbsp; 
+                        
+                        Gestion de projet, graphisme et webdesign
+                        
+                    </li>
+                    
+                    <li>
+                        <i class="fa fa-map-marker"></i>&nbsp; 
+                        
+                        Toulouse
+                        
+                    </li>
+                    
+                    <li>
+                        <i class="fa fa-envelope-o"></i>&nbsp; 
+                        <a href="mailto:contact@manonlay.com">
+                        contact@manonlay.com
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <i class="fa fa-pinterest-p"></i>&nbsp; 
+                        <a href="https://www.pinterest.com/manon_lay/">
+                        Pinterest
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <i class="fa fa-linkedin"></i>&nbsp; 
+                        <a href="https://fr.linkedin.com/pub/manon-lay/b4/5b6/127">
+                        LinkedIn
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="site-footer">
 
   <div class="wrapper">
 
@@ -91,8 +168,6 @@
             
             </li>
             
-            <li><a href="mailto:contact@manonlay.com">contact@manonlay.com</a></li>
-            
         </ul>
       </div>
 
@@ -105,8 +180,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</p>
+        <p></p>
       </div>
     </div>
 
@@ -114,6 +188,8 @@
 
 </footer>
 
+    
+    </div>
 
   </body>
 

@@ -50,6 +50,14 @@ module.exports = {
             }
         ]
     },
+
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.common.js',
+            "request$": "xhr"
+        }
+    },
+
     plugins:[
         new webpack.ProvidePlugin({   
             jQuery: 'jquery',

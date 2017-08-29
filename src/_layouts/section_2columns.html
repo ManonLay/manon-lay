@@ -1,19 +1,19 @@
 <div class="row">
     <!-- Column 1 -->
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-12 col-sm-6">
     {% if page.column_left.cover %}
         <img src="{{ page.column_left.cover | relative_url }}"/>
     {% endif %}
     {% if page.column_left.head %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <h2>{{ page.column_left.head }}</h2>
             </div>
         </div>
     {% endif %}
     {% if page.column_left.description %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <p>{{ page.column_left.description | markdownify }}</p>
             </div>
         </div>
@@ -22,12 +22,12 @@
         <div class="row">
             {% assign ordered_skills = page.column_left.skills | sort: "order" %}
             {% for skill in ordered_skills %}
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-3">
                         <i class="{{ skill.icon }}"></i>
                     </div>
-                    <div class="col-xs-9">
+                    <div class="col-9">
                         <h3>{{ skill.name }}</h3>
                         <p>{{ skill.description | markdownify }}</p>
                     </div>
@@ -38,7 +38,7 @@
     {% endif %}
     {% if page.column_left.cv_doc or page.column_left.portfolio_doc %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 {% if page.column_left.cv_doc %}
                     <a href="{{ page.column_left.cv_doc | relative_url }}" target="_blank">CV</a>
                 {% endif %}
@@ -51,20 +51,20 @@
     </div>
 
     <!-- Column 2 -->
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-12 col-sm-6">
     {% if page.column_right.cover %}
         <img src="{{ page.column_right.cover | relative_url }}"/>
     {% endif %}
     {% if page.column_right.head %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <h2>{{ page.column_right.head }}</h2>
             </div>
         </div>
     {% endif %}
     {% if page.column_right.description %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 <p>{{ page.column_right.description | markdownify }}</p>
             </div>
         </div>
@@ -73,12 +73,12 @@
         <div class="row">
             {% assign ordered_skills = page.column_right.skills | sort: "order" %}
             {% for skill in ordered_skills %}
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-12 col-sm-6">
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-3">
                         <i class="{{ skill.icon }}"></i>
                     </div>
-                    <div class="col-xs-9">
+                    <div class="col-9">
                         <h3>{{ skill.name }}</h3>
                         <p>{{ skill.description | markdownify }}</p>
                     </div>
@@ -89,7 +89,7 @@
     {% endif %}
     {% if page.column_right.cv_doc or page.column_right.portfolio_doc %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
                 {% if page.column_right.cv_doc %}
                     <a href="{{ page.column_right.cv_doc | relative_url }}" target="_blank">CV</a>
                 {% endif %}
