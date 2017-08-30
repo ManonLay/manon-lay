@@ -5,18 +5,16 @@
 
   <body>
 
-    <div id="app">
-
-      {% include header.html %}
-
-      <main class="container-fluid" aria-label="Content">
-        {{ content }}
-      </main>
-
-      {% include footer.html %}
+    {% include header.html %}
+      
+    <main id="app" aria-label="Content">
     
-    </div>
+      {{ content }}
 
+    </main>
+
+    {% include footer.html %}
+    
   </body>
 
   <script src="{{ "/assets/bin/bundle.js" | relative_url }}"></script>

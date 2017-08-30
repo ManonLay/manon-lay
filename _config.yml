@@ -17,6 +17,9 @@ title: Manon LAY
 author_name: Manon Lay
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "manonlay.com" # the base hostname & protocol for your site, e.g. http://example.com
+developer:
+  name: SylvainMarty
+  github: https://github.com/SylvainMarty
 
 footer:
   head: Get in touch

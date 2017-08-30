@@ -3,43 +3,82 @@
 import 'font-awesome-sass-loader';
 import './scss/style.scss';
 
-import Vue from 'vue';
-import MailgunFactory from "mailgun.js";
+import Vue from "vue";
+import xhr from "xhr";
+import GoogleMapsLoader from "google-maps";
 
 // Mail conf
-var api_key = "key-68f3360e46d449ef97b28e9dc41ed74b";
-var domain = "sandboxa2430e1ec0cc4ab0b0dc56c133140adf.mailgun.org";
+var api_url = "https://formspree.io/";
 var email_to = "sylvain.martyg@gmail.com";
-var mailgun = MailgunFactory.client({
-    username: 'api',
-    key: api_key,
-});
+// GMaps conf
+GoogleMapsLoader.KEY = "AIzaSyB_AXIy2p4zUl3PXIqpyJ54lIT6usyYtYQ";
+var coordonnees = {
+    lat: 43.604652,
+    lng: 1.444209
+}
 
 window.App = new Vue({
     el: '#app',
-    data: {
-        contact: {
-            name: "Michel Test",
-            email: "test@test.fr",
-            subject: "Test envoi email",
-            message: "super test tralala"
-        }
+
+    data: function() {
+        var vm = this;
+        GoogleMapsLoader.load(initGoogleMap);
+
+        this.getWindowHeight();
+        window.addEventListener('resize', function() {
+            vm.getWindowHeight();
+        });
+
+        return {
+            contact: {
+                name: "Michel Test",
+                email: "test@test.fr",
+                subject: "Test envoi email",
+                message: "super test tralala"
+            }
+        };
     },
+
     methods: {
-        sendEmail : debounce(function () {
+
+        galleryFilter: function(id) {
+            var items = $("[data-filter]");
+            items.each(function() {
+                var item = $(this);
+                if(id == "reset") {
+                    item.fadeIn();
+                } else if(item.data("filter") != id) {
+                    item.fadeOut();
+                } else {
+                    item.fadeIn();
+                }
+            });
+        },
+
+        sendEmail: debounce(function () {
             var data = {
-                from: this.contact.name+" <"+this.contact.email+">",
-                to: email_to,
-                subject: "[manonlay.com] "+this.contact.subject,
-                text: this.contact.message
+                "email": this.contact.name+" <"+this.contact.email+">",
+                "_subject": "[manonlay.com] "+this.contact.subject,
+                "message": this.contact.message
             };
-            console.info("sending email", data);
-            // use https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
-            // to test in localhost
-            mailgun.messages.create(domain, data)
-            .then(msg => console.log(msg)) // logs response data
-            .catch(err => console.log(err)); // logs any error
-        }, 500)
+            console.debug("sending email", data);
+            xhr({
+                body: data,
+                url: api_url+email_to,
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+            }, function (err, resp, body) {
+                console.debug("FORMSPREE", err, body);
+            });
+        }, 500),
+        
+        getWindowHeight: function(event) {
+            var windowHeight = $( window ).height();
+            $(".view-height").css("height", windowHeight);
+        }
     }
 });
 
@@ -58,3 +97,42 @@ function debounce(func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
+
+function initGoogleMap(google) {
+    console.debug("INIT GOOGLE MAP");
+    var map;
+    var toulouse = new google.maps.LatLng(coordonnees.lat, coordonnees.lng);
+
+    var style = [
+      {
+        featureType: "all",
+        elementType: "all",
+        stylers: [
+          { weight: 0.1 },
+          { lightness: 1 },
+          { gamma: 1},
+          { saturation: -75 },
+          { hue: "#e56d6e" },
+          { visibility: "on" }
+        ]
+      }
+    ];
+
+    var mapOptions = {
+        zoom: 12,
+        center: toulouse,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        draggable: false,
+    };
+
+    map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
+
+    var mapType = new google.maps.StyledMapType(style, { name:"Grayscale" });    
+    map.mapTypes.set('map_toulouse', mapType);
+    map.setMapTypeId('map_toulouse');
+ }

@@ -1,41 +1,43 @@
-{% assign filtered_collection = site.collections | where: "label" , "realisations" %}
-{% assign filters = "" | split: "" %}
+<div class="container full-padding">
+    {% assign filtered_collection = site.collections | where: "label" , "realisations" %}
+    {% assign filters = "" | split: "" %}
 
-{% for collection in filtered_collection %}
-    {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
-    {% for real in sorted_realisations %}
-        {% if real.category  %}
-            {% unless filters contains real.category %}
-                {% assign filters = filters | push: real.category %}
-            {% endunless %}
-        {% endif %}
+    {% for collection in filtered_collection %}
+        {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
+        {% for real in sorted_realisations %}
+            {% if real.category  %}
+                {% unless filters contains real.category %}
+                    {% assign filters = filters | push: real.category %}
+                {% endunless %}
+            {% endif %}
+        {% endfor %}
     {% endfor %}
-{% endfor %}
 
-<div class="row">
-    <div class="col-12 col-sm-10 ml-md-auto">
-        <div class="row">
-            <div class="col-12">
-                <h2>{{ page.head }}</h2>
-                <p>
-                    Filtres : {% for filtre in filters %}<a href="#{{ filtre | url_encode }}">{{ filtre }}</a>{% endfor %}
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            {% for collection in filtered_collection %}
-                {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
-                {% for real in sorted_realisations limit:6 %}
-                <div class="col-12 col-sm-4">
-                    <p>{{ real.title }}</p>
-                    <img src="{{ real.thumbnail | relative_url }}" alt="{{ real.title }} thumbnail">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <h2>{{ page.head }}</h2>
+                    <p>
+                        Filtres : {% for filtre in filters %}<a href="#{{ filtre | url_encode }}" @click="galleryFilter('{{ filtre }}')">{{ filtre }}</a>{% endfor %}
+                    </p>
                 </div>
+            </div>
+            <div class="row">
+                {% for collection in filtered_collection %}
+                    {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
+                    {% for real in sorted_realisations limit:6 %}
+                    <div class="col-12 col-sm-4" data-filter="{{ real.category }}">
+                        <p>{{ real.title }}</p>
+                        <img src="{{ real.thumbnail | relative_url }}" alt="{{ real.title }} thumbnail">
+                    </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <a href="{{ '/realisations/' | relative_url }}">Voir toutes les réalisations &nbsp;<i class="fa fa-long-arrow-right"></i></a>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{ '/realisations/' | relative_url }}">Voir toutes les réalisations &nbsp;<i class="fa fa-long-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </div>

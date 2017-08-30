@@ -1,2 +1,49 @@
 @import "variables.scss";
 @import "~bootstrap/scss/bootstrap";
+
+/*
+ * Variables
+ */
+
+$full-padding-length: 140px;
+
+/*
+ * Général
+ */
+
+img,
+.full-width {
+    width: 100%;
+}
+
+section {
+    
+    &.full-padding {
+        padding-top: $full-padding-length;
+        padding-bottom: $full-padding-length;
+    }
+}
+
+.gmap{
+    height: 300px;
+}
+
+/*
+ * Utility class
+ */
+
+.bg-image {
+    background-position: center;
+    background-size: cover;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-margin-child {
+
+    p {
+        margin: 0;
+    }
+}

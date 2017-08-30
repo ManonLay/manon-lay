@@ -1,0 +1,55 @@
+<div class="col-12 col-sm-6">
+    {% if include.column.cover %}
+    <div class="bg-image"
+         style="background-image: url({{ include.column.cover | relative_url }});"></div>
+    {% endif %}
+
+    {% if include.column.head or include.column.description %}
+    <div class="row justify-content-center">
+        <div class="col-10">
+        {% if include.column.head %}
+            <h2>{{ include.column.head }}</h2>
+        {% endif %}
+        {% if include.column.description %}
+            {{ include.column.description | markdownify }}
+        {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if include.column.skills %}
+    <div class="row">
+        {% assign ordered_skills = include.column.skills | sort: "order" %}
+        {% for skill in ordered_skills %}
+        <div class="col-12 col-sm-6">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <i class="{{ skill.icon }} fa-2x"></i>
+                </div>
+                <div class="col-9 no-margin-child">
+                    <h3>{{ skill.name }}</h3>
+                    {{ skill.description | markdownify }}
+                </div>
+            </div>
+        </div>
+        {% if forloop.index == 2 %}
+            {% unless forloop.last %}
+            <div class="col-12 mb-4"></div>
+            {% endunless %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if include.column.cv_doc or include.column.portfolio_doc %}
+    <div class="row">
+        <div class="col-12">
+            {% if include.column.cv_doc %}
+                <a href="{{ include.column.cv_doc | relative_url }}" target="_blank">CV</a>
+            {% endif %}
+            {% if include.column.portfolio_doc %}
+                <a href="{{ include.column.portfolio_doc | relative_url }}" target="_blank">Portfolio</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
