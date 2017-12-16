@@ -1,20 +1,20 @@
-<footer>
+<footer class="bg-dark-grey">
   
-  <div class="container-fluid">
+  <div class="container-fluid full-padding">
     {% include contact.html %}
   </div>
 
   {% include map.html %}
   
-  <div class="container-fluid">
-    <div class="row">
+  <div class="container">
+    <div class="row align-items-center" style="height:34px;">
 
-      <div class="col-12 col-sm-3">
-        <p class="left">{{ site.author_name | escape }} © 2017 | <a href="{{ "/mentions-legales" | relative_url }}">Mentions légales</a></p>
+      <div class="col-12 col-sm-4">
+        {{ site.author_name | escape }} © 2017 | <a href="{{ "/mentions-legales" | relative_url }}">Mentions légales</a>
       </div>
 
-      <div class="col-12 col-sm-3 ml-auto">
-        <p class="right">Développé par <a href="{{ site.developer.github }}" target="_blank">{{ site.developer.name }}</a></p>
+      <div class="col-12 col-sm-4 ml-auto">
+        Développé par <a href="{{ site.developer.github }}" target="_blank">{{ site.developer.name }}</a>
       </div>
 
     </div>

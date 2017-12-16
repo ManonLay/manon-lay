@@ -1,6 +1,7 @@
 ---
 date: 2017-08-29
 title: Test réalisation
+description: Minions ipsum bee do bee do bee do baboiii
 thumbnail: img/projet6.png
 cover: img/projet6.png
 category: Catégorie1

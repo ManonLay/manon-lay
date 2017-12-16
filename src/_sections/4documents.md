@@ -1,6 +1,7 @@
 ---
 layout: section_2columns
 order: 4
+cssClass: bg-light-grey
 column_left:
     head: Télécharger cv/portfolio
     cv_doc: doc/cv_manon_lay_2016.pdf

@@ -5,5 +5,5 @@ head: Bienvenue sur mon portfolio
 skill: Webdesigner / UX Designer
 accroche: |
     Vous pouvez me suivre sur Twitter, Instagram ou Dribbble
-cover: img/header.jpg
+cover: img/cover_header.jpg
 ---

@@ -1,6 +1,7 @@
 ---
 layout: section_2columns
 order: 2
+cssClass: bg-dark-grey
 column_left:
     head: Qui suis-je ?
     description: |

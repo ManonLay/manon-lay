@@ -43,7 +43,7 @@ collections:
     title: Homepage sections
   realisations:
     output: true
-    permalink: /:name
+    permalink: /realisations/:path
 
 # Build settings
 markdown: kramdown

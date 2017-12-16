@@ -1,0 +1,31 @@
+/*
+ * Variables
+ */
+
+$full-padding-length: 100px;
+
+// Colors
+$color-white: #ffffff;
+$color-black: #000000;
+$color-red: #fe6766;
+$color-light-red: #fb8786;
+$color-dark-grey: #333333;
+$color-light-grey: #f3f3f3;
+
+$gray-100: #f8f9fa !default;
+$gray-800: #343a40 !default;
+
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$cyan:    #17a2b8 !default;
+
+$theme-colors: (
+    primary: $color-red,
+    secondary: $color-light-grey,
+    success: $green,
+    info: $cyan,
+    warning: $yellow,
+    danger: $color-light-red,
+    light: $gray-100,
+    dark: $gray-800
+);

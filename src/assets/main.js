@@ -30,6 +30,7 @@ window.App = new Vue({
         });
 
         return {
+            galleryFiltered: false,
             contact: {
                 name: "Michel Test",
                 email: "test@test.fr",
@@ -42,7 +43,9 @@ window.App = new Vue({
     methods: {
 
         galleryFilter: function(id) {
-            var items = $("[data-filter]");
+            var vm = this,
+                items = $("[data-filter]");
+            console.debug("galleryFilter", vm.galleryFiltered)
             items.each(function() {
                 var item = $(this);
                 if(id == "reset") {
@@ -53,6 +56,11 @@ window.App = new Vue({
                     item.fadeIn();
                 }
             });
+            if(id != "reset") {
+                vm.galleryFiltered = true;
+            } else {
+                vm.galleryFiltered = false;
+            }
         },
 
         sendEmail: debounce(function () {

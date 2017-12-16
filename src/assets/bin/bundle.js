@@ -607,6 +607,7 @@ window.App = new _vue2.default({
         });
 
         return {
+            galleryFiltered: false,
             contact: {
                 name: "Michel Test",
                 email: "test@test.fr",
@@ -619,7 +620,9 @@ window.App = new _vue2.default({
     methods: {
 
         galleryFilter: function galleryFilter(id) {
-            var items = $("[data-filter]");
+            var vm = this,
+                items = $("[data-filter]");
+            console.debug("galleryFilter", vm.galleryFiltered);
             items.each(function () {
                 var item = $(this);
                 if (id == "reset") {
@@ -630,6 +633,11 @@ window.App = new _vue2.default({
                     item.fadeIn();
                 }
             });
+            if (id != "reset") {
+                vm.galleryFiltered = true;
+            } else {
+                vm.galleryFiltered = false;
+            }
         },
 
         sendEmail: debounce(function () {

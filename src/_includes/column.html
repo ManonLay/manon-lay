@@ -1,7 +1,8 @@
-<div class="col-12 col-sm-6">
+<div class="col-12 col-sm-6 {{ include.fullPaddingClass }}">
     {% if include.column.cover %}
-    <div class="bg-image"
-         style="background-image: url({{ include.column.cover | relative_url }});"></div>
+    <!-- <div class="bg-image"
+         style="background-image: url({{ include.column.cover | relative_url }});"></div> -->
+    <img src="{{ include.column.cover | relative_url }}" alt="{{ include.column.head }}">
     {% endif %}
 
     {% if include.column.head or include.column.description %}
@@ -41,8 +42,8 @@
     </div>
     {% endif %}
     {% if include.column.cv_doc or include.column.portfolio_doc %}
-    <div class="row">
-        <div class="col-12">
+    <div class="row justify-content-center">
+        <div class="col-10">
             {% if include.column.cv_doc %}
                 <a href="{{ include.column.cv_doc | relative_url }}" target="_blank">CV</a>
             {% endif %}

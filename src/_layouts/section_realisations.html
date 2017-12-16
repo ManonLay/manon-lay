@@ -1,4 +1,4 @@
-<div class="container full-padding">
+<div class="container half-padding {{ page.cssClass}}">
     {% assign filtered_collection = site.collections | where: "label" , "realisations" %}
     {% assign filters = "" | split: "" %}
 
@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <h2>{{ page.head }}</h2>
                     <p>
-                        Filtres : {% for filtre in filters %}<a href="#{{ filtre | url_encode }}" @click="galleryFilter('{{ filtre }}')">{{ filtre }}</a>{% endfor %}
+                        Filtres : <a href="" :class="{ 'd-none': !galleryFiltered }" @click.stop.prevent="galleryFilter('reset')"><i class="fa fa-refresh"></i></a> {% for filtre in filters %}<a href="" @click.stop.prevent="galleryFilter('{{ filtre }}')">{{ filtre }}</a>{% endfor %}
                     </p>
                 </div>
             </div>
@@ -28,8 +28,16 @@
                     {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
                     {% for real in sorted_realisations limit:6 %}
                     <div class="col-12 col-sm-4" data-filter="{{ real.category }}">
-                        <p>{{ real.title }}</p>
-                        <img src="{{ real.thumbnail | relative_url }}" alt="{{ real.title }} thumbnail">
+                        <div class="thumbnail">
+                            <a href="{{ real.url }}">
+                                <div class="thumbnail-overlay"></div>
+                                <img class="thumbnail-image" src="{{ real.thumbnail | relative_url }}" alt="{{ real.title }}">
+                                <div class="thumbnail-details fadeIn-top">
+                                    <h3>{{ real.title }}</h3>
+                                    <p>{{ real.description }}</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                     {% endfor %}
                 {% endfor %}

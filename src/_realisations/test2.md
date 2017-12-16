@@ -1,6 +1,7 @@
 ---
 date: 2017-06-13
 title: Test réalisation 2
+description: Minions ipsum bee do bee do bee do baboiii
 thumbnail: img/projet5.png
 cover: img/projet5.png
 category: Catégorie2

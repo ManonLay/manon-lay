@@ -1,8 +1,14 @@
-<section class="container-fluid full-padding">
+<section class="container-fluid {{ page.cssClass }}">
     <div class="row align-items-center">
+
+        {% assign fullPaddingClass = "full-padding" %}
+        {% if page.column_left.cover or page.column_right.cover %}
+            {% assign fullPaddingClass = "" %}
+        {% endif %}
+
         <!-- Column 1 -->
-        {% include column.html column=page.column_left %}
+        {% include column.html column=page.column_left fullPaddingClass=fullPaddingClass %}
         <!-- Column 2 -->
-        {% include column.html column=page.column_right %}
+        {% include column.html column=page.column_right fullPaddingClass=fullPaddingClass %}
     </div>
 </section>
