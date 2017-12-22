@@ -147,6 +147,17 @@ a {
     }
 }
 
+footer,
+footer.bg-dark-grey {
+    color: $color-medium-grey;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: .75em;
+
+    a {
+        color: $color-white;
+    }
+}
 
 /*
  * Utility class

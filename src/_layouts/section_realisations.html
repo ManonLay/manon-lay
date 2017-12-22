@@ -3,7 +3,7 @@
     {% assign filters = "" | split: "" %}
 
     {% for collection in filtered_collection %}
-        {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
+        {% assign sorted_realisations = collection.docs | sort: "date" | reverse %}
         {% for real in sorted_realisations %}
             {% if real.category  %}
                 {% unless filters contains real.category %}
@@ -25,7 +25,7 @@
             </div>
             <div class="row">
                 {% for collection in filtered_collection %}
-                    {% assign sorted_realisations = (collection.docs | sort: "date") | reverse %}
+                    {% assign sorted_realisations = collection.docs | sort: "date" | reverse %}
                     {% for real in sorted_realisations limit:6 %}
                     <div class="col-12 col-sm-4" data-filter="{{ real.category }}">
                         <div class="thumbnail">
