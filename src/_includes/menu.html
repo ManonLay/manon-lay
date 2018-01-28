@@ -1,0 +1,19 @@
+<transition name="slide-fade">
+    <div ref="menuOverlay" class="container-fluid menu" v-if="isMenuOpen">
+        <div class="row align-items-center">
+            <div class="col-xs-12 col-sm-6 offset-sm-1">
+                <ul class="navigation">
+                    {% for collection in site.collections %}
+                        {% if collection.label == "sections" %}
+                            {% assign sorted_sections = collection.docs | sort: "order" %}
+                            {% for section in sorted_sections %}
+                                <li><a href="" @click.stop.prevent="smoothScrollTo('{{ section.navigation.slug }}')">{{ section.navigation.link }}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    <li><a href="" @click.stop.prevent="smoothScrollTo('contact-section')">Get in touch</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</transition>

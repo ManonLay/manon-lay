@@ -7,6 +7,8 @@ import Vue from "vue";
 import xhr from "xhr";
 import GoogleMapsLoader from "google-maps";
 
+// Global conf
+const SMOOTH_SCROLL_SPEED = 500;
 // Mail conf
 var api_url = "https://formspree.io/";
 var email_to = "sylvain.martyg@gmail.com";
@@ -30,6 +32,7 @@ window.App = new Vue({
         });
 
         return {
+            isMenuOpen: false,
             galleryFiltered: false,
             contact: {
                 name: "Michel Test",
@@ -42,10 +45,26 @@ window.App = new Vue({
 
     methods: {
 
+        toggleMenu: function () {
+            var vm = this;
+            let button = vm.$refs.burgerButton;
+            if(vm.isMenuOpen) {
+                vm.isMenuOpen = false;
+                $("body").removeClass("overlay-opened");
+            } else {
+                vm.isMenuOpen = true;
+                $("body").addClass("overlay-opened");
+            }
+        },
+
+        smoothScrollTo: function(anchor) {
+            this.toggleMenu();
+			$('html, body').animate( { scrollTop: $("#"+anchor).offset().top }, SMOOTH_SCROLL_SPEED );
+        },
+
         galleryFilter: function(id) {
             var vm = this,
                 items = $("[data-filter]");
-            console.debug("galleryFilter", vm.galleryFiltered)
             items.each(function() {
                 var item = $(this);
                 if(id == "reset") {
@@ -63,25 +82,28 @@ window.App = new Vue({
             }
         },
 
-        sendEmail: debounce(function () {
-            var data = {
-                "email": this.contact.name+" <"+this.contact.email+">",
-                "_subject": "[manonlay.com] "+this.contact.subject,
-                "message": this.contact.message
-            };
-            console.debug("sending email", data);
-            xhr({
-                body: data,
-                url: api_url+email_to,
-                method: "POST",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                }
-            }, function (err, resp, body) {
-                console.debug("FORMSPREE", err, body);
-            });
-        }, 500),
+        sendEmail: function () {
+            console.debug("sendEmail()");
+            debounce(function () {
+                var data = {
+                    "email": this.contact.name+" <"+this.contact.email+">",
+                    "_subject": "[manonlay.com] "+this.contact.subject,
+                    "message": this.contact.message
+                };
+                console.debug("sending email", data);
+                xhr({
+                    body: data,
+                    url: api_url+email_to,
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    }
+                }, function (err, resp, body) {
+                    console.debug("FORMSPREE", err, body);
+                });
+            }, 500);
+        },
         
         getWindowHeight: function(event) {
             var windowHeight = $( window ).height();
@@ -92,7 +114,8 @@ window.App = new Vue({
 
 // found here https://davidwalsh.name/javascript-debounce-function
 function debounce(func, wait, immediate) {
-	var timeout;
+    var timeout;
+    console.log("debouncing");
 	return function() {
 		var context = this, args = arguments;
 		var later = function() {

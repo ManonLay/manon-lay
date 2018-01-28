@@ -1,6 +1,9 @@
 ---
 layout: section_2columns
 order: 2
+navigation:
+    slug: skills-section
+    link: Qui suis-je ?
 cssClass: bg-dark-grey
 column_left:
     head: Qui suis-je ?

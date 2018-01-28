@@ -1,4 +1,4 @@
-<div class="container half-padding {{ page.cssClass}}">
+<div id="{{ page.navigation.slug }}" class="container half-padding {{ page.cssClass}}">
     {% assign filtered_collection = site.collections | where: "label" , "realisations" %}
     {% assign filters = "" | split: "" %}
 
@@ -32,9 +32,9 @@
                             <a href="{{ real.url }}">
                                 <div class="thumbnail-overlay"></div>
                                 <img class="thumbnail-image" src="{{ real.thumbnail | relative_url }}" alt="{{ real.title }}">
-                                <div class="thumbnail-details fadeIn-top">
-                                    <h3>{{ real.title }}</h3>
-                                    <p>{{ real.description }}</p>
+                                <div class="thumbnail-details">
+                                    <h3><span>{{ real.title }}</span></h3>
+                                    <p><span>{{ real.description }}</span></p>
                                 </div>
                             </a>
                         </div>

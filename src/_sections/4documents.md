@@ -1,6 +1,9 @@
 ---
 layout: section_2columns
 order: 4
+navigation:
+    slug: book-section
+    link: Book & CV
 cssClass: bg-light-grey
 column_left:
     head: Télécharger cv/portfolio
